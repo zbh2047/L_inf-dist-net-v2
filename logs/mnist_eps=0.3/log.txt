@@ -1,0 +1,1439 @@
+dataset = MNIST
+model = MLPModel(depth=5,width=5120,identity_val=10.0,scalar=True)
+loss = radius_mix2(lam0=0.05,lam_end=0.0002)
+p_start = 8.0
+p_end = 1000.0
+eps_train = 0.45
+eps_test = 0.3
+eps_smooth = 0
+epochs = 0,0,25,400,450
+decays = None
+batch_size = 512
+lr = 0.03
+scalar_lr = 0.006
+beta1 = 0.9
+beta2 = 0.99
+epsilon = 1e-10
+start_epoch = 0
+checkpoint = None
+gpu = 5
+dist_url = tcp://localhost:23456
+world_size = 1
+rank = 0
+print_freq = 200
+result_dir = result
+filter_name = 
+seed = 2021
+visualize = False
+Compose(
+    RandomCrop(size=(28, 28), padding=1)
+    ToTensor()
+    Normalize(mean=[0.1307], std=[0.3081])
+)
+MLPModel(
+  (fc_dist): BoundSequential(
+    (0): NormDist(
+      in_features=784, out_features=5120, bias=False
+      (mean_shift): MeanShift(5120, affine=False)
+    )
+    (1): NormDist(
+      in_features=5120, out_features=5120, bias=False
+      (mean_shift): MeanShift(5120, affine=False)
+    )
+    (2): NormDist(
+      in_features=5120, out_features=5120, bias=False
+      (mean_shift): MeanShift(5120, affine=False)
+    )
+    (3): NormDist(
+      in_features=5120, out_features=5120, bias=False
+      (mean_shift): MeanShift(5120, affine=False)
+    )
+    (4): NormDist(in_features=5120, out_features=10, bias=True)
+  )
+)
+number of params:  82708491
+scalar:  1.0
+Epoch 0:  train loss 0.6811   train acc 0.6467   worst 0.1746   lr 0.0300   p 8.00   eps 1.4606   mix 0.0500   time 15.34
+scalar:  1.5701
+Epoch 1:  train loss 0.2564   train acc 0.8727   worst 0.6248   lr 0.0300   p 8.00   eps 1.4606   mix 0.0500   time 17.59
+scalar:  1.3708
+Epoch 2:  train loss 0.1422   train acc 0.9321   worst 0.7822   lr 0.0300   p 8.00   eps 1.4606   mix 0.0500   time 18.01
+scalar:  1.3546
+Epoch 3:  train loss 0.0999   train acc 0.9553   worst 0.8361   lr 0.0300   p 8.00   eps 1.4606   mix 0.0500   time 19.10
+scalar:  1.4026
+Epoch 4:  train loss 0.0794   train acc 0.9647   worst 0.8676   lr 0.0300   p 8.00   eps 1.4606   mix 0.0500   time 18.88
+Epoch 4:  test acc 0.9784   time 0.85
+Calculating metrics for L_infinity dist model on training set
+Epoch 4:  clean acc 0.2744   certified acc 0.0003
+Calculating metrics for L_infinity dist model on test set
+Epoch 4:  clean acc 0.2805   certified acc 0.0006
+scalar:  1.397
+Epoch 5:  train loss 0.0685   train acc 0.9703   worst 0.8829   lr 0.0300   p 8.00   eps 1.4606   mix 0.0500   time 18.54
+scalar:  1.4138
+Epoch 6:  train loss 0.0587   train acc 0.9749   worst 0.8976   lr 0.0300   p 8.00   eps 1.4606   mix 0.0500   time 18.85
+scalar:  1.437
+Epoch 7:  train loss 0.0541   train acc 0.9767   worst 0.9060   lr 0.0300   p 8.00   eps 1.4606   mix 0.0500   time 18.15
+scalar:  1.4199
+Epoch 8:  train loss 0.0498   train acc 0.9786   worst 0.9123   lr 0.0300   p 8.00   eps 1.4606   mix 0.0500   time 18.69
+scalar:  1.4231
+Epoch 9:  train loss 0.0457   train acc 0.9805   worst 0.9183   lr 0.0300   p 8.00   eps 1.4606   mix 0.0500   time 19.82
+Epoch 9:  test acc 0.9837   time 0.79
+Calculating metrics for L_infinity dist model on training set
+Epoch 9:  clean acc 0.3671   certified acc 0.0000
+Calculating metrics for L_infinity dist model on test set
+Epoch 9:  clean acc 0.3703   certified acc 0.0000
+scalar:  1.4071
+Epoch 10:  train loss 0.0424   train acc 0.9821   worst 0.9238   lr 0.0300   p 8.00   eps 1.4606   mix 0.0500   time 18.07
+scalar:  1.4134
+Epoch 11:  train loss 0.0406   train acc 0.9832   worst 0.9270   lr 0.0300   p 8.00   eps 1.4606   mix 0.0500   time 19.27
+scalar:  1.4121
+Epoch 12:  train loss 0.0381   train acc 0.9841   worst 0.9300   lr 0.0299   p 8.00   eps 1.4606   mix 0.0500   time 18.33
+scalar:  1.405
+Epoch 13:  train loss 0.0363   train acc 0.9846   worst 0.9324   lr 0.0299   p 8.00   eps 1.4606   mix 0.0500   time 18.81
+scalar:  1.4107
+Epoch 14:  train loss 0.0344   train acc 0.9858   worst 0.9359   lr 0.0299   p 8.00   eps 1.4606   mix 0.0500   time 18.75
+Epoch 14:  test acc 0.9875   time 0.84
+Calculating metrics for L_infinity dist model on training set
+Epoch 14:  clean acc 0.3655   certified acc 0.0000
+Calculating metrics for L_infinity dist model on test set
+Epoch 14:  clean acc 0.3596   certified acc 0.0000
+scalar:  1.4021
+Epoch 15:  train loss 0.0327   train acc 0.9864   worst 0.9390   lr 0.0299   p 8.00   eps 1.4606   mix 0.0500   time 18.50
+scalar:  1.4263
+Epoch 16:  train loss 0.0318   train acc 0.9867   worst 0.9401   lr 0.0299   p 8.00   eps 1.4606   mix 0.0500   time 19.51
+scalar:  1.4004
+Epoch 17:  train loss 0.0305   train acc 0.9871   worst 0.9425   lr 0.0299   p 8.00   eps 1.4606   mix 0.0500   time 18.78
+scalar:  1.4067
+Epoch 18:  train loss 0.0296   train acc 0.9878   worst 0.9438   lr 0.0299   p 8.00   eps 1.4606   mix 0.0500   time 19.85
+scalar:  1.4285
+Epoch 19:  train loss 0.0284   train acc 0.9879   worst 0.9459   lr 0.0299   p 8.00   eps 1.4606   mix 0.0500   time 19.00
+Epoch 19:  test acc 0.9888   time 0.85
+Calculating metrics for L_infinity dist model on training set
+Epoch 19:  clean acc 0.2930   certified acc 0.0001
+Calculating metrics for L_infinity dist model on test set
+Epoch 19:  clean acc 0.2716   certified acc 0.0000
+scalar:  1.4083
+Epoch 20:  train loss 0.0283   train acc 0.9885   worst 0.9461   lr 0.0299   p 8.00   eps 1.4606   mix 0.0500   time 19.27
+scalar:  1.434
+Epoch 21:  train loss 0.0268   train acc 0.9896   worst 0.9471   lr 0.0298   p 8.00   eps 1.4606   mix 0.0500   time 19.06
+scalar:  1.4382
+Epoch 22:  train loss 0.0261   train acc 0.9895   worst 0.9499   lr 0.0298   p 8.00   eps 1.4606   mix 0.0500   time 18.28
+scalar:  1.4222
+Epoch 23:  train loss 0.0254   train acc 0.9898   worst 0.9499   lr 0.0298   p 8.00   eps 1.4606   mix 0.0500   time 17.46
+scalar:  1.4507
+Epoch 24:  train loss 0.0244   train acc 0.9904   worst 0.9505   lr 0.0298   p 8.00   eps 1.4606   mix 0.0500   time 18.32
+Epoch 24:  test acc 0.9889   time 0.82
+Calculating metrics for L_infinity dist model on training set
+Epoch 24:  clean acc 0.2553   certified acc 0.0020
+Calculating metrics for L_infinity dist model on test set
+Epoch 24:  clean acc 0.2494   certified acc 0.0010
+scalar:  1.4988
+Epoch 25:  train loss 0.0241   train acc 0.9905   worst 0.9509   lr 0.0298   p 8.00   eps 1.4606   mix 0.0500   time 22.07
+scalar:  1.4508
+Epoch 26:  train loss 0.0243   train acc 0.9904   worst 0.9501   lr 0.0298   p 8.10   eps 1.4606   mix 0.0493   time 22.14
+scalar:  1.4757
+Epoch 27:  train loss 0.0238   train acc 0.9909   worst 0.9495   lr 0.0297   p 8.21   eps 1.4606   mix 0.0485   time 22.17
+scalar:  1.5422
+Epoch 28:  train loss 0.0242   train acc 0.9909   worst 0.9497   lr 0.0297   p 8.32   eps 1.4606   mix 0.0478   time 23.27
+scalar:  1.5026
+Epoch 29:  train loss 0.0235   train acc 0.9917   worst 0.9482   lr 0.0297   p 8.42   eps 1.4606   mix 0.0471   time 23.13
+Epoch 29:  test acc 0.9896   time 1.50
+Calculating metrics for L_infinity dist model on training set
+Epoch 29:  clean acc 0.3428   certified acc 0.0007
+Calculating metrics for L_infinity dist model on test set
+Epoch 29:  clean acc 0.3437   certified acc 0.0005
+scalar:  1.5639
+Epoch 30:  train loss 0.0235   train acc 0.9918   worst 0.9471   lr 0.0297   p 8.53   eps 1.4606   mix 0.0465   time 22.25
+scalar:  1.595
+Epoch 31:  train loss 0.0235   train acc 0.9915   worst 0.9480   lr 0.0297   p 8.64   eps 1.4606   mix 0.0458   time 22.67
+scalar:  1.604
+Epoch 32:  train loss 0.0229   train acc 0.9920   worst 0.9479   lr 0.0296   p 8.75   eps 1.4606   mix 0.0451   time 23.23
+scalar:  1.5936
+Epoch 33:  train loss 0.0233   train acc 0.9920   worst 0.9469   lr 0.0296   p 8.87   eps 1.4606   mix 0.0444   time 23.93
+scalar:  1.5962
+Epoch 34:  train loss 0.0228   train acc 0.9918   worst 0.9470   lr 0.0296   p 8.98   eps 1.4606   mix 0.0438   time 22.73
+Epoch 34:  test acc 0.9886   time 1.48
+Calculating metrics for L_infinity dist model on training set
+Epoch 34:  clean acc 0.3447   certified acc 0.0001
+Calculating metrics for L_infinity dist model on test set
+Epoch 34:  clean acc 0.3416   certified acc 0.0001
+scalar:  1.6116
+Epoch 35:  train loss 0.0236   train acc 0.9920   worst 0.9440   lr 0.0296   p 9.10   eps 1.4606   mix 0.0432   time 22.58
+scalar:  1.6648
+Epoch 36:  train loss 0.0229   train acc 0.9925   worst 0.9447   lr 0.0295   p 9.22   eps 1.4606   mix 0.0425   time 23.08
+scalar:  1.632
+Epoch 37:  train loss 0.0232   train acc 0.9919   worst 0.9443   lr 0.0295   p 9.34   eps 1.4606   mix 0.0419   time 23.83
+scalar:  1.6537
+Epoch 38:  train loss 0.0232   train acc 0.9924   worst 0.9439   lr 0.0295   p 9.46   eps 1.4606   mix 0.0413   time 23.08
+scalar:  1.7296
+Epoch 39:  train loss 0.0230   train acc 0.9928   worst 0.9427   lr 0.0294   p 9.58   eps 1.4606   mix 0.0407   time 23.10
+Epoch 39:  test acc 0.9891   time 1.42
+Calculating metrics for L_infinity dist model on training set
+Epoch 39:  clean acc 0.3266   certified acc 0.0103
+Calculating metrics for L_infinity dist model on test set
+Epoch 39:  clean acc 0.3269   certified acc 0.0082
+scalar:  1.6955
+Epoch 40:  train loss 0.0229   train acc 0.9926   worst 0.9425   lr 0.0294   p 9.70   eps 1.4606   mix 0.0401   time 22.91
+scalar:  1.6964
+Epoch 41:  train loss 0.0236   train acc 0.9926   worst 0.9420   lr 0.0294   p 9.83   eps 1.4606   mix 0.0395   time 22.11
+scalar:  1.7237
+Epoch 42:  train loss 0.0234   train acc 0.9926   worst 0.9406   lr 0.0294   p 9.96   eps 1.4606   mix 0.0389   time 24.62
+scalar:  1.731
+Epoch 43:  train loss 0.0234   train acc 0.9926   worst 0.9402   lr 0.0293   p 10.09   eps 1.4606   mix 0.0384   time 25.36
+scalar:  1.7861
+Epoch 44:  train loss 0.0232   train acc 0.9931   worst 0.9393   lr 0.0293   p 10.22   eps 1.4606   mix 0.0378   time 25.12
+Epoch 44:  test acc 0.9899   time 1.83
+Calculating metrics for L_infinity dist model on training set
+Epoch 44:  clean acc 0.4746   certified acc 0.0099
+Calculating metrics for L_infinity dist model on test set
+Epoch 44:  clean acc 0.4789   certified acc 0.0035
+scalar:  1.777
+Epoch 45:  train loss 0.0232   train acc 0.9929   worst 0.9384   lr 0.0293   p 10.35   eps 1.4606   mix 0.0372   time 24.64
+scalar:  1.7806
+Epoch 46:  train loss 0.0228   train acc 0.9931   worst 0.9388   lr 0.0292   p 10.48   eps 1.4606   mix 0.0367   time 24.19
+scalar:  1.795
+Epoch 47:  train loss 0.0233   train acc 0.9928   worst 0.9387   lr 0.0292   p 10.62   eps 1.4606   mix 0.0362   time 25.13
+scalar:  1.7851
+Epoch 48:  train loss 0.0231   train acc 0.9935   worst 0.9380   lr 0.0292   p 10.76   eps 1.4606   mix 0.0356   time 25.71
+scalar:  1.8487
+Epoch 49:  train loss 0.0233   train acc 0.9932   worst 0.9361   lr 0.0291   p 10.90   eps 1.4606   mix 0.0351   time 25.75
+Epoch 49:  test acc 0.9892   time 1.84
+Calculating metrics for L_infinity dist model on training set
+Epoch 49:  clean acc 0.4736   certified acc 0.0631
+Calculating metrics for L_infinity dist model on test set
+Epoch 49:  clean acc 0.4783   certified acc 0.0553
+scalar:  1.8589
+Epoch 50:  train loss 0.0234   train acc 0.9932   worst 0.9361   lr 0.0291   p 11.04   eps 1.4606   mix 0.0346   time 24.76
+scalar:  1.8637
+Epoch 51:  train loss 0.0233   train acc 0.9935   worst 0.9343   lr 0.0291   p 11.18   eps 1.4606   mix 0.0341   time 25.20
+scalar:  1.8869
+Epoch 52:  train loss 0.0236   train acc 0.9931   worst 0.9343   lr 0.0290   p 11.33   eps 1.4606   mix 0.0336   time 25.40
+scalar:  1.871
+Epoch 53:  train loss 0.0238   train acc 0.9932   worst 0.9321   lr 0.0290   p 11.47   eps 1.4606   mix 0.0331   time 25.08
+scalar:  1.8673
+Epoch 54:  train loss 0.0235   train acc 0.9932   worst 0.9328   lr 0.0289   p 11.62   eps 1.4606   mix 0.0326   time 24.89
+Epoch 54:  test acc 0.9888   time 1.90
+Calculating metrics for L_infinity dist model on training set
+Epoch 54:  clean acc 0.5058   certified acc 0.0573
+Calculating metrics for L_infinity dist model on test set
+Epoch 54:  clean acc 0.5196   certified acc 0.0524
+scalar:  1.9161
+Epoch 55:  train loss 0.0235   train acc 0.9934   worst 0.9319   lr 0.0289   p 11.77   eps 1.4606   mix 0.0321   time 24.66
+scalar:  1.919
+Epoch 56:  train loss 0.0241   train acc 0.9932   worst 0.9315   lr 0.0289   p 11.92   eps 1.4606   mix 0.0317   time 25.62
+scalar:  1.9269
+Epoch 57:  train loss 0.0236   train acc 0.9933   worst 0.9309   lr 0.0288   p 12.08   eps 1.4606   mix 0.0312   time 25.49
+scalar:  1.9276
+Epoch 58:  train loss 0.0239   train acc 0.9929   worst 0.9306   lr 0.0288   p 12.24   eps 1.4606   mix 0.0308   time 25.64
+scalar:  1.9719
+Epoch 59:  train loss 0.0241   train acc 0.9931   worst 0.9294   lr 0.0287   p 12.39   eps 1.4606   mix 0.0303   time 25.53
+Epoch 59:  test acc 0.9885   time 1.83
+Calculating metrics for L_infinity dist model on training set
+Epoch 59:  clean acc 0.6488   certified acc 0.0580
+Calculating metrics for L_infinity dist model on test set
+Epoch 59:  clean acc 0.6611   certified acc 0.0568
+scalar:  1.9744
+Epoch 60:  train loss 0.0240   train acc 0.9933   worst 0.9291   lr 0.0287   p 12.55   eps 1.4606   mix 0.0299   time 25.34
+scalar:  1.9309
+Epoch 61:  train loss 0.0242   train acc 0.9934   worst 0.9272   lr 0.0287   p 12.72   eps 1.4606   mix 0.0294   time 24.74
+scalar:  1.9919
+Epoch 62:  train loss 0.0238   train acc 0.9936   worst 0.9267   lr 0.0286   p 12.88   eps 1.4606   mix 0.0290   time 25.75
+scalar:  1.9983
+Epoch 63:  train loss 0.0240   train acc 0.9937   worst 0.9266   lr 0.0286   p 13.05   eps 1.4606   mix 0.0286   time 24.95
+scalar:  2.0188
+Epoch 64:  train loss 0.0238   train acc 0.9938   worst 0.9262   lr 0.0285   p 13.22   eps 1.4606   mix 0.0282   time 25.97
+Epoch 64:  test acc 0.9884   time 1.82
+Calculating metrics for L_infinity dist model on training set
+Epoch 64:  clean acc 0.7046   certified acc 0.0642
+Calculating metrics for L_infinity dist model on test set
+Epoch 64:  clean acc 0.7247   certified acc 0.0545
+scalar:  2.0236
+Epoch 65:  train loss 0.0243   train acc 0.9936   worst 0.9251   lr 0.0285   p 13.39   eps 1.4606   mix 0.0277   time 25.00
+scalar:  2.0182
+Epoch 66:  train loss 0.0247   train acc 0.9935   worst 0.9238   lr 0.0284   p 13.56   eps 1.4606   mix 0.0273   time 25.44
+scalar:  2.0577
+Epoch 67:  train loss 0.0245   train acc 0.9937   worst 0.9232   lr 0.0284   p 13.74   eps 1.4606   mix 0.0269   time 25.55
+scalar:  2.0762
+Epoch 68:  train loss 0.0243   train acc 0.9930   worst 0.9246   lr 0.0283   p 13.92   eps 1.4606   mix 0.0265   time 25.27
+scalar:  2.0344
+Epoch 69:  train loss 0.0245   train acc 0.9939   worst 0.9221   lr 0.0283   p 14.10   eps 1.4606   mix 0.0262   time 25.31
+Epoch 69:  test acc 0.9880   time 1.83
+Calculating metrics for L_infinity dist model on training set
+Epoch 69:  clean acc 0.7176   certified acc 0.0699
+Calculating metrics for L_infinity dist model on test set
+Epoch 69:  clean acc 0.7267   certified acc 0.0675
+scalar:  2.0859
+Epoch 70:  train loss 0.0251   train acc 0.9936   worst 0.9198   lr 0.0282   p 14.28   eps 1.4606   mix 0.0258   time 24.51
+scalar:  2.0946
+Epoch 71:  train loss 0.0247   train acc 0.9936   worst 0.9204   lr 0.0282   p 14.46   eps 1.4606   mix 0.0254   time 24.53
+scalar:  2.0906
+Epoch 72:  train loss 0.0252   train acc 0.9935   worst 0.9191   lr 0.0281   p 14.65   eps 1.4606   mix 0.0250   time 26.21
+scalar:  2.0727
+Epoch 73:  train loss 0.0244   train acc 0.9937   worst 0.9200   lr 0.0281   p 14.84   eps 1.4606   mix 0.0247   time 25.99
+scalar:  2.1038
+Epoch 74:  train loss 0.0246   train acc 0.9937   worst 0.9185   lr 0.0280   p 15.03   eps 1.4606   mix 0.0243   time 25.27
+Epoch 74:  test acc 0.9887   time 1.84
+Calculating metrics for L_infinity dist model on training set
+Epoch 74:  clean acc 0.7374   certified acc 0.0945
+Calculating metrics for L_infinity dist model on test set
+Epoch 74:  clean acc 0.7527   certified acc 0.0955
+scalar:  2.1
+Epoch 75:  train loss 0.0248   train acc 0.9940   worst 0.9169   lr 0.0280   p 15.23   eps 1.4606   mix 0.0239   time 24.45
+scalar:  2.1407
+Epoch 76:  train loss 0.0252   train acc 0.9935   worst 0.9158   lr 0.0279   p 15.43   eps 1.4606   mix 0.0236   time 25.84
+scalar:  2.1314
+Epoch 77:  train loss 0.0248   train acc 0.9939   worst 0.9169   lr 0.0279   p 15.63   eps 1.4606   mix 0.0233   time 25.79
+scalar:  2.1479
+Epoch 78:  train loss 0.0249   train acc 0.9938   worst 0.9161   lr 0.0278   p 15.83   eps 1.4606   mix 0.0229   time 25.27
+scalar:  2.1681
+Epoch 79:  train loss 0.0250   train acc 0.9941   worst 0.9150   lr 0.0278   p 16.03   eps 1.4606   mix 0.0226   time 25.80
+Epoch 79:  test acc 0.9888   time 1.87
+Calculating metrics for L_infinity dist model on training set
+Epoch 79:  clean acc 0.8090   certified acc 0.0954
+Calculating metrics for L_infinity dist model on test set
+Epoch 79:  clean acc 0.8269   certified acc 0.0966
+scalar:  2.1808
+Epoch 80:  train loss 0.0258   train acc 0.9937   worst 0.9131   lr 0.0277   p 16.24   eps 1.4606   mix 0.0222   time 24.42
+scalar:  2.1924
+Epoch 81:  train loss 0.0250   train acc 0.9942   worst 0.9119   lr 0.0277   p 16.45   eps 1.4606   mix 0.0219   time 25.13
+scalar:  2.1915
+Epoch 82:  train loss 0.0251   train acc 0.9941   worst 0.9131   lr 0.0276   p 16.67   eps 1.4606   mix 0.0216   time 26.01
+scalar:  2.2148
+Epoch 83:  train loss 0.0256   train acc 0.9939   worst 0.9105   lr 0.0276   p 16.88   eps 1.4606   mix 0.0213   time 25.56
+scalar:  2.2207
+Epoch 84:  train loss 0.0258   train acc 0.9939   worst 0.9102   lr 0.0275   p 17.10   eps 1.4606   mix 0.0210   time 25.87
+Epoch 84:  test acc 0.9883   time 1.87
+Calculating metrics for L_infinity dist model on training set
+Epoch 84:  clean acc 0.8669   certified acc 0.0912
+Calculating metrics for L_infinity dist model on test set
+Epoch 84:  clean acc 0.8740   certified acc 0.0902
+scalar:  2.2249
+Epoch 85:  train loss 0.0258   train acc 0.9937   worst 0.9103   lr 0.0274   p 17.32   eps 1.4606   mix 0.0207   time 24.33
+scalar:  2.2021
+Epoch 86:  train loss 0.0260   train acc 0.9939   worst 0.9088   lr 0.0274   p 17.55   eps 1.4606   mix 0.0204   time 24.94
+scalar:  2.2312
+Epoch 87:  train loss 0.0261   train acc 0.9939   worst 0.9085   lr 0.0273   p 17.77   eps 1.4606   mix 0.0201   time 26.28
+scalar:  2.233
+Epoch 88:  train loss 0.0267   train acc 0.9933   worst 0.9057   lr 0.0273   p 18.00   eps 1.4606   mix 0.0198   time 25.38
+scalar:  2.2172
+Epoch 89:  train loss 0.0260   train acc 0.9939   worst 0.9068   lr 0.0272   p 18.24   eps 1.4606   mix 0.0195   time 25.19
+Epoch 89:  test acc 0.9886   time 1.87
+Calculating metrics for L_infinity dist model on training set
+Epoch 89:  clean acc 0.8984   certified acc 0.0993
+Calculating metrics for L_infinity dist model on test set
+Epoch 89:  clean acc 0.9023   certified acc 0.1017
+scalar:  2.2474
+Epoch 90:  train loss 0.0268   train acc 0.9938   worst 0.9032   lr 0.0271   p 18.47   eps 1.4606   mix 0.0192   time 25.31
+scalar:  2.2533
+Epoch 91:  train loss 0.0268   train acc 0.9938   worst 0.9045   lr 0.0271   p 18.71   eps 1.4606   mix 0.0189   time 25.52
+scalar:  2.2354
+Epoch 92:  train loss 0.0264   train acc 0.9942   worst 0.9032   lr 0.0270   p 18.96   eps 1.4606   mix 0.0186   time 25.19
+scalar:  2.2761
+Epoch 93:  train loss 0.0271   train acc 0.9936   worst 0.9031   lr 0.0269   p 19.20   eps 1.4606   mix 0.0184   time 25.22
+scalar:  2.2965
+Epoch 94:  train loss 0.0266   train acc 0.9941   worst 0.9015   lr 0.0269   p 19.45   eps 1.4606   mix 0.0181   time 25.46
+Epoch 94:  test acc 0.9884   time 1.85
+Calculating metrics for L_infinity dist model on training set
+Epoch 94:  clean acc 0.9370   certified acc 0.1045
+Calculating metrics for L_infinity dist model on test set
+Epoch 94:  clean acc 0.9402   certified acc 0.1063
+scalar:  2.309
+Epoch 95:  train loss 0.0272   train acc 0.9942   worst 0.8983   lr 0.0268   p 19.70   eps 1.4606   mix 0.0178   time 25.61
+scalar:  2.3292
+Epoch 96:  train loss 0.0273   train acc 0.9941   worst 0.8969   lr 0.0268   p 19.96   eps 1.4606   mix 0.0176   time 25.77
+scalar:  2.3253
+Epoch 97:  train loss 0.0270   train acc 0.9941   worst 0.8987   lr 0.0267   p 20.22   eps 1.4606   mix 0.0173   time 24.57
+scalar:  2.296
+Epoch 98:  train loss 0.0269   train acc 0.9942   worst 0.8966   lr 0.0266   p 20.48   eps 1.4606   mix 0.0171   time 24.88
+scalar:  2.3125
+Epoch 99:  train loss 0.0273   train acc 0.9942   worst 0.8945   lr 0.0266   p 20.74   eps 1.4606   mix 0.0168   time 25.44
+Epoch 99:  test acc 0.9885   time 1.85
+Calculating metrics for L_infinity dist model on training set
+Epoch 99:  clean acc 0.9659   certified acc 0.1021
+Calculating metrics for L_infinity dist model on test set
+Epoch 99:  clean acc 0.9652   certified acc 0.1024
+scalar:  2.3528
+Epoch 100:  train loss 0.0275   train acc 0.9939   worst 0.8945   lr 0.0265   p 21.01   eps 1.4606   mix 0.0166   time 25.82
+scalar:  2.3679
+Epoch 101:  train loss 0.0278   train acc 0.9936   worst 0.8936   lr 0.0264   p 21.28   eps 1.4606   mix 0.0163   time 25.82
+scalar:  2.3225
+Epoch 102:  train loss 0.0278   train acc 0.9940   worst 0.8925   lr 0.0264   p 21.56   eps 1.4606   mix 0.0161   time 25.27
+scalar:  2.3613
+Epoch 103:  train loss 0.0279   train acc 0.9938   worst 0.8924   lr 0.0263   p 21.84   eps 1.4606   mix 0.0159   time 25.26
+scalar:  2.3273
+Epoch 104:  train loss 0.0287   train acc 0.9937   worst 0.8893   lr 0.0262   p 22.12   eps 1.4606   mix 0.0156   time 25.94
+Epoch 104:  test acc 0.9887   time 1.88
+Calculating metrics for L_infinity dist model on training set
+Epoch 104:  clean acc 0.9609   certified acc 0.1070
+Calculating metrics for L_infinity dist model on test set
+Epoch 104:  clean acc 0.9579   certified acc 0.1089
+scalar:  2.3606
+Epoch 105:  train loss 0.0290   train acc 0.9939   worst 0.8875   lr 0.0261   p 22.41   eps 1.4606   mix 0.0154   time 25.17
+scalar:  2.3725
+Epoch 106:  train loss 0.0287   train acc 0.9940   worst 0.8865   lr 0.0261   p 22.70   eps 1.4606   mix 0.0152   time 25.90
+scalar:  2.4155
+Epoch 107:  train loss 0.0287   train acc 0.9941   worst 0.8856   lr 0.0260   p 22.99   eps 1.4606   mix 0.0149   time 25.18
+scalar:  2.3934
+Epoch 108:  train loss 0.0292   train acc 0.9940   worst 0.8832   lr 0.0259   p 23.29   eps 1.4606   mix 0.0147   time 25.38
+scalar:  2.4171
+Epoch 109:  train loss 0.0290   train acc 0.9939   worst 0.8847   lr 0.0259   p 23.59   eps 1.4606   mix 0.0145   time 25.71
+Epoch 109:  test acc 0.9885   time 1.84
+Calculating metrics for L_infinity dist model on training set
+Epoch 109:  clean acc 0.9790   certified acc 0.1086
+Calculating metrics for L_infinity dist model on test set
+Epoch 109:  clean acc 0.9738   certified acc 0.1115
+scalar:  2.4049
+Epoch 110:  train loss 0.0297   train acc 0.9935   worst 0.8816   lr 0.0258   p 23.90   eps 1.4606   mix 0.0143   time 25.70
+scalar:  2.3829
+Epoch 111:  train loss 0.0295   train acc 0.9938   worst 0.8818   lr 0.0257   p 24.21   eps 1.4606   mix 0.0141   time 25.59
+scalar:  2.4304
+Epoch 112:  train loss 0.0301   train acc 0.9937   worst 0.8790   lr 0.0256   p 24.52   eps 1.4606   mix 0.0139   time 25.42
+scalar:  2.4063
+Epoch 113:  train loss 0.0298   train acc 0.9938   worst 0.8787   lr 0.0256   p 24.84   eps 1.4606   mix 0.0137   time 25.26
+scalar:  2.4347
+Epoch 114:  train loss 0.0304   train acc 0.9935   worst 0.8767   lr 0.0255   p 25.16   eps 1.4606   mix 0.0135   time 25.39
+Epoch 114:  test acc 0.9881   time 1.87
+Calculating metrics for L_infinity dist model on training set
+Epoch 114:  clean acc 0.9872   certified acc 0.1135
+Calculating metrics for L_infinity dist model on test set
+Epoch 114:  clean acc 0.9838   certified acc 0.1165
+scalar:  2.4366
+Epoch 115:  train loss 0.0305   train acc 0.9939   worst 0.8755   lr 0.0254   p 25.49   eps 1.4606   mix 0.0133   time 25.92
+scalar:  2.4449
+Epoch 116:  train loss 0.0304   train acc 0.9939   worst 0.8757   lr 0.0253   p 25.82   eps 1.4606   mix 0.0131   time 25.45
+scalar:  2.44
+Epoch 117:  train loss 0.0305   train acc 0.9941   worst 0.8727   lr 0.0253   p 26.15   eps 1.4606   mix 0.0129   time 25.20
+scalar:  2.4897
+Epoch 118:  train loss 0.0306   train acc 0.9939   worst 0.8718   lr 0.0252   p 26.49   eps 1.4606   mix 0.0127   time 25.73
+scalar:  2.4907
+Epoch 119:  train loss 0.0313   train acc 0.9937   worst 0.8712   lr 0.0251   p 26.84   eps 1.4606   mix 0.0125   time 25.51
+Epoch 119:  test acc 0.9884   time 1.88
+Calculating metrics for L_infinity dist model on training set
+Epoch 119:  clean acc 0.9896   certified acc 0.1199
+Calculating metrics for L_infinity dist model on test set
+Epoch 119:  clean acc 0.9846   certified acc 0.1248
+scalar:  2.4909
+Epoch 120:  train loss 0.0314   train acc 0.9939   worst 0.8696   lr 0.0250   p 27.18   eps 1.4606   mix 0.0123   time 24.99
+scalar:  2.5018
+Epoch 121:  train loss 0.0316   train acc 0.9941   worst 0.8669   lr 0.0250   p 27.54   eps 1.4606   mix 0.0122   time 25.39
+scalar:  2.5098
+Epoch 122:  train loss 0.0320   train acc 0.9936   worst 0.8659   lr 0.0249   p 27.89   eps 1.4606   mix 0.0120   time 25.62
+scalar:  2.5191
+Epoch 123:  train loss 0.0316   train acc 0.9938   worst 0.8646   lr 0.0248   p 28.25   eps 1.4606   mix 0.0118   time 24.71
+scalar:  2.4947
+Epoch 124:  train loss 0.0323   train acc 0.9934   worst 0.8634   lr 0.0247   p 28.62   eps 1.4606   mix 0.0116   time 25.18
+Epoch 124:  test acc 0.9880   time 1.87
+Calculating metrics for L_infinity dist model on training set
+Epoch 124:  clean acc 0.9903   certified acc 0.1159
+Calculating metrics for L_infinity dist model on test set
+Epoch 124:  clean acc 0.9848   certified acc 0.1176
+scalar:  2.467
+Epoch 125:  train loss 0.0325   train acc 0.9938   worst 0.8628   lr 0.0246   p 28.99   eps 1.4606   mix 0.0115   time 25.29
+scalar:  2.479
+Epoch 126:  train loss 0.0322   train acc 0.9941   worst 0.8599   lr 0.0246   p 29.37   eps 1.4606   mix 0.0113   time 25.75
+scalar:  2.529
+Epoch 127:  train loss 0.0333   train acc 0.9939   worst 0.8560   lr 0.0245   p 29.75   eps 1.4606   mix 0.0111   time 25.10
+scalar:  2.5498
+Epoch 128:  train loss 0.0326   train acc 0.9937   worst 0.8580   lr 0.0244   p 30.13   eps 1.4606   mix 0.0110   time 25.25
+scalar:  2.5708
+Epoch 129:  train loss 0.0335   train acc 0.9938   worst 0.8548   lr 0.0243   p 30.52   eps 1.4606   mix 0.0108   time 25.31
+Epoch 129:  test acc 0.9881   time 1.84
+Calculating metrics for L_infinity dist model on training set
+Epoch 129:  clean acc 0.9917   certified acc 0.1454
+Calculating metrics for L_infinity dist model on test set
+Epoch 129:  clean acc 0.9858   certified acc 0.1541
+scalar:  2.5669
+Epoch 130:  train loss 0.0336   train acc 0.9936   worst 0.8531   lr 0.0242   p 30.92   eps 1.4606   mix 0.0107   time 25.61
+scalar:  2.5596
+Epoch 131:  train loss 0.0335   train acc 0.9943   worst 0.8532   lr 0.0242   p 31.32   eps 1.4606   mix 0.0105   time 25.48
+scalar:  2.6192
+Epoch 132:  train loss 0.0341   train acc 0.9937   worst 0.8513   lr 0.0241   p 31.73   eps 1.4606   mix 0.0103   time 24.82
+scalar:  2.573
+Epoch 133:  train loss 0.0344   train acc 0.9938   worst 0.8480   lr 0.0240   p 32.14   eps 1.4606   mix 0.0102   time 25.16
+scalar:  2.5887
+Epoch 134:  train loss 0.0345   train acc 0.9941   worst 0.8485   lr 0.0239   p 32.55   eps 1.4606   mix 0.0100   time 24.89
+Epoch 134:  test acc 0.9876   time 1.85
+Calculating metrics for L_infinity dist model on training set
+Epoch 134:  clean acc 0.9927   certified acc 0.1474
+Calculating metrics for L_infinity dist model on test set
+Epoch 134:  clean acc 0.9867   certified acc 0.1595
+scalar:  2.5901
+Epoch 135:  train loss 0.0346   train acc 0.9942   worst 0.8469   lr 0.0238   p 32.97   eps 1.4606   mix 0.0099   time 25.65
+scalar:  2.6132
+Epoch 136:  train loss 0.0352   train acc 0.9938   worst 0.8437   lr 0.0237   p 33.40   eps 1.4606   mix 0.0098   time 25.41
+scalar:  2.5668
+Epoch 137:  train loss 0.0358   train acc 0.9933   worst 0.8403   lr 0.0236   p 33.84   eps 1.4606   mix 0.0096   time 25.20
+scalar:  2.5957
+Epoch 138:  train loss 0.0357   train acc 0.9939   worst 0.8416   lr 0.0236   p 34.27   eps 1.4606   mix 0.0095   time 25.41
+scalar:  2.5869
+Epoch 139:  train loss 0.0357   train acc 0.9940   worst 0.8396   lr 0.0235   p 34.72   eps 1.4606   mix 0.0093   time 25.28
+Epoch 139:  test acc 0.9879   time 1.85
+Calculating metrics for L_infinity dist model on training set
+Epoch 139:  clean acc 0.9930   certified acc 0.1751
+Calculating metrics for L_infinity dist model on test set
+Epoch 139:  clean acc 0.9859   certified acc 0.1964
+scalar:  2.5911
+Epoch 140:  train loss 0.0362   train acc 0.9935   worst 0.8376   lr 0.0234   p 35.17   eps 1.4606   mix 0.0092   time 25.66
+scalar:  2.6041
+Epoch 141:  train loss 0.0359   train acc 0.9934   worst 0.8385   lr 0.0233   p 35.62   eps 1.4606   mix 0.0091   time 25.51
+scalar:  2.5966
+Epoch 142:  train loss 0.0364   train acc 0.9934   worst 0.8345   lr 0.0232   p 36.08   eps 1.4606   mix 0.0089   time 25.61
+scalar:  2.612
+Epoch 143:  train loss 0.0363   train acc 0.9939   worst 0.8360   lr 0.0231   p 36.55   eps 1.4606   mix 0.0088   time 25.97
+scalar:  2.6373
+Epoch 144:  train loss 0.0374   train acc 0.9935   worst 0.8306   lr 0.0230   p 37.03   eps 1.4606   mix 0.0087   time 25.50
+Epoch 144:  test acc 0.9880   time 1.90
+Calculating metrics for L_infinity dist model on training set
+Epoch 144:  clean acc 0.9932   certified acc 0.2226
+Calculating metrics for L_infinity dist model on test set
+Epoch 144:  clean acc 0.9865   certified acc 0.2399
+scalar:  2.5897
+Epoch 145:  train loss 0.0377   train acc 0.9933   worst 0.8294   lr 0.0229   p 37.51   eps 1.4606   mix 0.0085   time 25.74
+scalar:  2.6265
+Epoch 146:  train loss 0.0374   train acc 0.9934   worst 0.8284   lr 0.0229   p 37.99   eps 1.4606   mix 0.0084   time 26.07
+scalar:  2.6011
+Epoch 147:  train loss 0.0379   train acc 0.9938   worst 0.8242   lr 0.0228   p 38.48   eps 1.4606   mix 0.0083   time 25.35
+scalar:  2.6474
+Epoch 148:  train loss 0.0379   train acc 0.9937   worst 0.8239   lr 0.0227   p 38.98   eps 1.4606   mix 0.0082   time 25.32
+scalar:  2.6637
+Epoch 149:  train loss 0.0378   train acc 0.9933   worst 0.8229   lr 0.0226   p 39.49   eps 1.4606   mix 0.0081   time 25.91
+Epoch 149:  test acc 0.9886   time 1.85
+Calculating metrics for L_infinity dist model on training set
+Epoch 149:  clean acc 0.9937   certified acc 0.2234
+Calculating metrics for L_infinity dist model on test set
+Epoch 149:  clean acc 0.9862   certified acc 0.2482
+scalar:  2.6374
+Epoch 150:  train loss 0.0384   train acc 0.9934   worst 0.8199   lr 0.0225   p 40.00   eps 1.4606   mix 0.0079   time 25.97
+scalar:  2.643
+Epoch 151:  train loss 0.0386   train acc 0.9937   worst 0.8203   lr 0.0224   p 40.52   eps 1.4606   mix 0.0078   time 25.90
+scalar:  2.6815
+Epoch 152:  train loss 0.0392   train acc 0.9933   worst 0.8181   lr 0.0223   p 41.04   eps 1.4606   mix 0.0077   time 25.42
+scalar:  2.7013
+Epoch 153:  train loss 0.0393   train acc 0.9933   worst 0.8156   lr 0.0222   p 41.58   eps 1.4606   mix 0.0076   time 24.51
+scalar:  2.6915
+Epoch 154:  train loss 0.0393   train acc 0.9938   worst 0.8136   lr 0.0221   p 42.11   eps 1.4606   mix 0.0075   time 26.06
+Epoch 154:  test acc 0.9884   time 1.86
+Calculating metrics for L_infinity dist model on training set
+Epoch 154:  clean acc 0.9930   certified acc 0.3422
+Calculating metrics for L_infinity dist model on test set
+Epoch 154:  clean acc 0.9864   certified acc 0.3701
+scalar:  2.6621
+Epoch 155:  train loss 0.0395   train acc 0.9933   worst 0.8147   lr 0.0220   p 42.66   eps 1.4606   mix 0.0074   time 25.97
+scalar:  2.6716
+Epoch 156:  train loss 0.0399   train acc 0.9938   worst 0.8081   lr 0.0219   p 43.21   eps 1.4606   mix 0.0073   time 25.00
+scalar:  2.6899
+Epoch 157:  train loss 0.0407   train acc 0.9934   worst 0.8072   lr 0.0219   p 43.77   eps 1.4606   mix 0.0072   time 25.49
+scalar:  2.6799
+Epoch 158:  train loss 0.0398   train acc 0.9935   worst 0.8093   lr 0.0218   p 44.34   eps 1.4606   mix 0.0071   time 25.34
+scalar:  2.6906
+Epoch 159:  train loss 0.0405   train acc 0.9936   worst 0.8053   lr 0.0217   p 44.91   eps 1.4606   mix 0.0070   time 26.13
+Epoch 159:  test acc 0.9879   time 1.85
+Calculating metrics for L_infinity dist model on training set
+Epoch 159:  clean acc 0.9934   certified acc 0.3436
+Calculating metrics for L_infinity dist model on test set
+Epoch 159:  clean acc 0.9871   certified acc 0.3696
+scalar:  2.6904
+Epoch 160:  train loss 0.0406   train acc 0.9929   worst 0.8072   lr 0.0216   p 45.50   eps 1.4606   mix 0.0069   time 25.68
+scalar:  2.6785
+Epoch 161:  train loss 0.0413   train acc 0.9936   worst 0.8007   lr 0.0215   p 46.09   eps 1.4606   mix 0.0068   time 24.82
+scalar:  2.703
+Epoch 162:  train loss 0.0412   train acc 0.9932   worst 0.8022   lr 0.0214   p 46.68   eps 1.4606   mix 0.0067   time 25.20
+scalar:  2.6989
+Epoch 163:  train loss 0.0416   train acc 0.9935   worst 0.7985   lr 0.0213   p 47.29   eps 1.4606   mix 0.0066   time 25.39
+scalar:  2.7073
+Epoch 164:  train loss 0.0420   train acc 0.9931   worst 0.7985   lr 0.0212   p 47.90   eps 1.4606   mix 0.0065   time 25.79
+Epoch 164:  test acc 0.9881   time 1.84
+Calculating metrics for L_infinity dist model on training set
+Epoch 164:  clean acc 0.9933   certified acc 0.4840
+Calculating metrics for L_infinity dist model on test set
+Epoch 164:  clean acc 0.9870   certified acc 0.5251
+scalar:  2.7048
+Epoch 165:  train loss 0.0426   train acc 0.9934   worst 0.7931   lr 0.0211   p 48.52   eps 1.4606   mix 0.0064   time 26.18
+scalar:  2.726
+Epoch 166:  train loss 0.0424   train acc 0.9933   worst 0.7950   lr 0.0210   p 49.15   eps 1.4606   mix 0.0063   time 24.86
+scalar:  2.7188
+Epoch 167:  train loss 0.0420   train acc 0.9932   worst 0.7950   lr 0.0209   p 49.79   eps 1.4606   mix 0.0062   time 25.83
+scalar:  2.7204
+Epoch 168:  train loss 0.0428   train acc 0.9936   worst 0.7887   lr 0.0208   p 50.43   eps 1.4606   mix 0.0061   time 25.47
+scalar:  2.736
+Epoch 169:  train loss 0.0426   train acc 0.9933   worst 0.7919   lr 0.0207   p 51.09   eps 1.4606   mix 0.0060   time 25.16
+Epoch 169:  test acc 0.9877   time 1.87
+Calculating metrics for L_infinity dist model on training set
+Epoch 169:  clean acc 0.9934   certified acc 0.5634
+Calculating metrics for L_infinity dist model on test set
+Epoch 169:  clean acc 0.9870   certified acc 0.6002
+scalar:  2.7511
+Epoch 170:  train loss 0.0437   train acc 0.9933   worst 0.7840   lr 0.0206   p 51.75   eps 1.4606   mix 0.0059   time 25.40
+scalar:  2.7509
+Epoch 171:  train loss 0.0439   train acc 0.9933   worst 0.7816   lr 0.0205   p 52.42   eps 1.4606   mix 0.0058   time 25.11
+scalar:  2.7608
+Epoch 172:  train loss 0.0440   train acc 0.9933   worst 0.7830   lr 0.0204   p 53.10   eps 1.4606   mix 0.0057   time 25.53
+scalar:  2.7621
+Epoch 173:  train loss 0.0436   train acc 0.9934   worst 0.7829   lr 0.0203   p 53.79   eps 1.4606   mix 0.0057   time 25.76
+scalar:  2.7476
+Epoch 174:  train loss 0.0440   train acc 0.9933   worst 0.7791   lr 0.0202   p 54.48   eps 1.4606   mix 0.0056   time 25.40
+Epoch 174:  test acc 0.9874   time 1.88
+Calculating metrics for L_infinity dist model on training set
+Epoch 174:  clean acc 0.9934   certified acc 0.6209
+Calculating metrics for L_infinity dist model on test set
+Epoch 174:  clean acc 0.9873   certified acc 0.6585
+scalar:  2.7538
+Epoch 175:  train loss 0.0447   train acc 0.9930   worst 0.7775   lr 0.0201   p 55.19   eps 1.4606   mix 0.0055   time 25.70
+scalar:  2.7595
+Epoch 176:  train loss 0.0446   train acc 0.9933   worst 0.7766   lr 0.0200   p 55.90   eps 1.4606   mix 0.0054   time 24.86
+scalar:  2.7605
+Epoch 177:  train loss 0.0446   train acc 0.9932   worst 0.7749   lr 0.0199   p 56.63   eps 1.4606   mix 0.0053   time 25.68
+scalar:  2.7653
+Epoch 178:  train loss 0.0454   train acc 0.9934   worst 0.7702   lr 0.0198   p 57.36   eps 1.4606   mix 0.0053   time 25.78
+scalar:  2.7701
+Epoch 179:  train loss 0.0459   train acc 0.9929   worst 0.7671   lr 0.0197   p 58.11   eps 1.4606   mix 0.0052   time 25.53
+Epoch 179:  test acc 0.9875   time 1.85
+Calculating metrics for L_infinity dist model on training set
+Epoch 179:  clean acc 0.9930   certified acc 0.6621
+Calculating metrics for L_infinity dist model on test set
+Epoch 179:  clean acc 0.9872   certified acc 0.7019
+scalar:  2.7636
+Epoch 180:  train loss 0.0457   train acc 0.9933   worst 0.7703   lr 0.0196   p 58.86   eps 1.4606   mix 0.0051   time 25.24
+scalar:  2.8101
+Epoch 181:  train loss 0.0459   train acc 0.9928   worst 0.7693   lr 0.0195   p 59.62   eps 1.4606   mix 0.0050   time 25.13
+scalar:  2.7998
+Epoch 182:  train loss 0.0461   train acc 0.9928   worst 0.7650   lr 0.0194   p 60.39   eps 1.4606   mix 0.0050   time 24.61
+scalar:  2.743
+Epoch 183:  train loss 0.0463   train acc 0.9932   worst 0.7625   lr 0.0193   p 61.18   eps 1.4606   mix 0.0049   time 25.09
+scalar:  2.7586
+Epoch 184:  train loss 0.0462   train acc 0.9934   worst 0.7611   lr 0.0192   p 61.97   eps 1.4606   mix 0.0048   time 25.60
+Epoch 184:  test acc 0.9875   time 1.83
+Calculating metrics for L_infinity dist model on training set
+Epoch 184:  clean acc 0.9931   certified acc 0.7748
+Calculating metrics for L_infinity dist model on test set
+Epoch 184:  clean acc 0.9871   certified acc 0.7923
+scalar:  2.7997
+Epoch 185:  train loss 0.0466   train acc 0.9931   worst 0.7587   lr 0.0191   p 62.77   eps 1.4606   mix 0.0047   time 25.10
+scalar:  2.7972
+Epoch 186:  train loss 0.0466   train acc 0.9936   worst 0.7600   lr 0.0190   p 63.59   eps 1.4606   mix 0.0047   time 24.60
+scalar:  2.8039
+Epoch 187:  train loss 0.0474   train acc 0.9930   worst 0.7569   lr 0.0189   p 64.41   eps 1.4606   mix 0.0046   time 25.33
+scalar:  2.8045
+Epoch 188:  train loss 0.0474   train acc 0.9931   worst 0.7531   lr 0.0188   p 65.24   eps 1.4606   mix 0.0045   time 25.25
+scalar:  2.8231
+Epoch 189:  train loss 0.0477   train acc 0.9933   worst 0.7504   lr 0.0187   p 66.09   eps 1.4606   mix 0.0045   time 25.40
+Epoch 189:  test acc 0.9882   time 1.85
+Calculating metrics for L_infinity dist model on training set
+Epoch 189:  clean acc 0.9929   certified acc 0.8175
+Calculating metrics for L_infinity dist model on test set
+Epoch 189:  clean acc 0.9877   certified acc 0.8281
+scalar:  2.8328
+Epoch 190:  train loss 0.0477   train acc 0.9931   worst 0.7503   lr 0.0186   p 66.95   eps 1.4606   mix 0.0044   time 25.06
+scalar:  2.8257
+Epoch 191:  train loss 0.0479   train acc 0.9927   worst 0.7503   lr 0.0185   p 67.81   eps 1.4606   mix 0.0043   time 24.82
+scalar:  2.7868
+Epoch 192:  train loss 0.0484   train acc 0.9927   worst 0.7506   lr 0.0184   p 68.69   eps 1.4606   mix 0.0043   time 25.19
+scalar:  2.8114
+Epoch 193:  train loss 0.0488   train acc 0.9932   worst 0.7453   lr 0.0183   p 69.58   eps 1.4606   mix 0.0042   time 25.32
+scalar:  2.824
+Epoch 194:  train loss 0.0480   train acc 0.9928   worst 0.7491   lr 0.0182   p 70.49   eps 1.4606   mix 0.0042   time 25.65
+Epoch 194:  test acc 0.9878   time 1.87
+Calculating metrics for L_infinity dist model on training set
+Epoch 194:  clean acc 0.9933   certified acc 0.8431
+Calculating metrics for L_infinity dist model on test set
+Epoch 194:  clean acc 0.9877   certified acc 0.8443
+scalar:  2.7922
+Epoch 195:  train loss 0.0485   train acc 0.9929   worst 0.7440   lr 0.0181   p 71.40   eps 1.4606   mix 0.0041   time 25.82
+scalar:  2.8094
+Epoch 196:  train loss 0.0492   train acc 0.9928   worst 0.7383   lr 0.0180   p 72.32   eps 1.4606   mix 0.0040   time 25.52
+scalar:  2.8155
+Epoch 197:  train loss 0.0491   train acc 0.9926   worst 0.7414   lr 0.0179   p 73.26   eps 1.4606   mix 0.0040   time 25.69
+scalar:  2.8146
+Epoch 198:  train loss 0.0499   train acc 0.9929   worst 0.7367   lr 0.0178   p 74.21   eps 1.4606   mix 0.0039   time 24.52
+scalar:  2.817
+Epoch 199:  train loss 0.0488   train acc 0.9928   worst 0.7390   lr 0.0177   p 75.17   eps 1.4606   mix 0.0039   time 25.67
+Epoch 199:  test acc 0.9873   time 1.88
+Calculating metrics for L_infinity dist model on training set
+Epoch 199:  clean acc 0.9932   certified acc 0.8775
+Calculating metrics for L_infinity dist model on test set
+Epoch 199:  clean acc 0.9879   certified acc 0.8809
+scalar:  2.8173
+Epoch 200:  train loss 0.0500   train acc 0.9926   worst 0.7365   lr 0.0176   p 76.15   eps 1.4606   mix 0.0038   time 25.04
+scalar:  2.8413
+Epoch 201:  train loss 0.0502   train acc 0.9929   worst 0.7289   lr 0.0175   p 77.13   eps 1.4606   mix 0.0037   time 25.30
+scalar:  2.8637
+Epoch 202:  train loss 0.0503   train acc 0.9928   worst 0.7327   lr 0.0174   p 78.13   eps 1.4606   mix 0.0037   time 25.60
+scalar:  2.8574
+Epoch 203:  train loss 0.0494   train acc 0.9929   worst 0.7333   lr 0.0173   p 79.14   eps 1.4606   mix 0.0036   time 24.98
+scalar:  2.8319
+Epoch 204:  train loss 0.0506   train acc 0.9930   worst 0.7280   lr 0.0172   p 80.17   eps 1.4606   mix 0.0036   time 25.77
+Epoch 204:  test acc 0.9876   time 1.84
+Calculating metrics for L_infinity dist model on training set
+Epoch 204:  clean acc 0.9931   certified acc 0.8962
+Calculating metrics for L_infinity dist model on test set
+Epoch 204:  clean acc 0.9868   certified acc 0.8888
+scalar:  2.8636
+Epoch 205:  train loss 0.0507   train acc 0.9930   worst 0.7225   lr 0.0171   p 81.21   eps 1.4606   mix 0.0035   time 25.04
+scalar:  2.8621
+Epoch 206:  train loss 0.0507   train acc 0.9929   worst 0.7238   lr 0.0170   p 82.26   eps 1.4606   mix 0.0035   time 25.16
+scalar:  2.8536
+Epoch 207:  train loss 0.0515   train acc 0.9928   worst 0.7218   lr 0.0169   p 83.33   eps 1.4606   mix 0.0034   time 25.72
+scalar:  2.8712
+Epoch 208:  train loss 0.0511   train acc 0.9926   worst 0.7214   lr 0.0168   p 84.41   eps 1.4606   mix 0.0034   time 24.99
+scalar:  2.8535
+Epoch 209:  train loss 0.0518   train acc 0.9930   worst 0.7164   lr 0.0167   p 85.50   eps 1.4606   mix 0.0033   time 25.80
+Epoch 209:  test acc 0.9876   time 1.83
+Calculating metrics for L_infinity dist model on training set
+Epoch 209:  clean acc 0.9932   certified acc 0.9118
+Calculating metrics for L_infinity dist model on test set
+Epoch 209:  clean acc 0.9870   certified acc 0.9037
+scalar:  2.869
+Epoch 210:  train loss 0.0518   train acc 0.9931   worst 0.7181   lr 0.0166   p 86.61   eps 1.4606   mix 0.0033   time 24.98
+scalar:  2.8764
+Epoch 211:  train loss 0.0520   train acc 0.9925   worst 0.7128   lr 0.0165   p 87.73   eps 1.4606   mix 0.0032   time 25.83
+scalar:  2.8414
+Epoch 212:  train loss 0.0524   train acc 0.9928   worst 0.7153   lr 0.0164   p 88.87   eps 1.4606   mix 0.0032   time 25.34
+scalar:  2.854
+Epoch 213:  train loss 0.0523   train acc 0.9930   worst 0.7098   lr 0.0163   p 90.02   eps 1.4606   mix 0.0031   time 25.04
+scalar:  2.8546
+Epoch 214:  train loss 0.0520   train acc 0.9928   worst 0.7117   lr 0.0162   p 91.19   eps 1.4606   mix 0.0031   time 25.59
+Epoch 214:  test acc 0.9872   time 1.85
+Calculating metrics for L_infinity dist model on training set
+Epoch 214:  clean acc 0.9929   certified acc 0.9200
+Calculating metrics for L_infinity dist model on test set
+Epoch 214:  clean acc 0.9873   certified acc 0.9080
+scalar:  2.8456
+Epoch 215:  train loss 0.0523   train acc 0.9928   worst 0.7117   lr 0.0160   p 92.37   eps 1.4606   mix 0.0030   time 25.07
+scalar:  2.8721
+Epoch 216:  train loss 0.0524   train acc 0.9928   worst 0.7064   lr 0.0159   p 93.57   eps 1.4606   mix 0.0030   time 25.59
+scalar:  2.8758
+Epoch 217:  train loss 0.0524   train acc 0.9929   worst 0.7067   lr 0.0158   p 94.78   eps 1.4606   mix 0.0030   time 25.41
+scalar:  2.8738
+Epoch 218:  train loss 0.0531   train acc 0.9930   worst 0.6990   lr 0.0157   p 96.01   eps 1.4606   mix 0.0029   time 25.20
+scalar:  2.8753
+Epoch 219:  train loss 0.0530   train acc 0.9925   worst 0.7045   lr 0.0156   p 97.25   eps 1.4606   mix 0.0029   time 25.38
+Epoch 219:  test acc 0.9872   time 1.88
+Calculating metrics for L_infinity dist model on training set
+Epoch 219:  clean acc 0.9928   certified acc 0.9248
+Calculating metrics for L_infinity dist model on test set
+Epoch 219:  clean acc 0.9869   certified acc 0.9144
+scalar:  2.8543
+Epoch 220:  train loss 0.0540   train acc 0.9925   worst 0.6993   lr 0.0155   p 98.51   eps 1.4606   mix 0.0028   time 25.33
+scalar:  2.8705
+Epoch 221:  train loss 0.0544   train acc 0.9928   worst 0.6928   lr 0.0154   p 99.79   eps 1.4606   mix 0.0028   time 25.57
+scalar:  2.8946
+Epoch 222:  train loss 0.0545   train acc 0.9925   worst 0.6957   lr 0.0153   p 101.08   eps 1.4606   mix 0.0027   time 25.13
+scalar:  2.8903
+Epoch 223:  train loss 0.0540   train acc 0.9925   worst 0.6965   lr 0.0152   p 102.39   eps 1.4606   mix 0.0027   time 24.93
+scalar:  2.8487
+Epoch 224:  train loss 0.0538   train acc 0.9924   worst 0.6958   lr 0.0151   p 103.72   eps 1.4606   mix 0.0027   time 25.62
+Epoch 224:  test acc 0.9861   time 1.84
+Calculating metrics for L_infinity dist model on training set
+Epoch 224:  clean acc 0.9927   certified acc 0.9279
+Calculating metrics for L_infinity dist model on test set
+Epoch 224:  clean acc 0.9864   certified acc 0.9160
+scalar:  2.8889
+Epoch 225:  train loss 0.0547   train acc 0.9924   worst 0.6938   lr 0.0150   p 105.06   eps 1.4606   mix 0.0026   time 25.02
+scalar:  2.8904
+Epoch 226:  train loss 0.0546   train acc 0.9928   worst 0.6894   lr 0.0149   p 106.42   eps 1.4606   mix 0.0026   time 25.35
+scalar:  2.9007
+Epoch 227:  train loss 0.0547   train acc 0.9928   worst 0.6888   lr 0.0148   p 107.80   eps 1.4606   mix 0.0026   time 24.52
+scalar:  2.8889
+Epoch 228:  train loss 0.0545   train acc 0.9928   worst 0.6897   lr 0.0147   p 109.20   eps 1.4606   mix 0.0025   time 24.35
+scalar:  2.9143
+Epoch 229:  train loss 0.0549   train acc 0.9926   worst 0.6850   lr 0.0146   p 110.61   eps 1.4606   mix 0.0025   time 24.53
+Epoch 229:  test acc 0.9860   time 1.90
+Calculating metrics for L_infinity dist model on training set
+Epoch 229:  clean acc 0.9929   certified acc 0.9299
+Calculating metrics for L_infinity dist model on test set
+Epoch 229:  clean acc 0.9867   certified acc 0.9162
+scalar:  2.8941
+Epoch 230:  train loss 0.0552   train acc 0.9925   worst 0.6866   lr 0.0145   p 112.05   eps 1.4606   mix 0.0024   time 25.31
+scalar:  2.9047
+Epoch 231:  train loss 0.0550   train acc 0.9928   worst 0.6851   lr 0.0144   p 113.50   eps 1.4606   mix 0.0024   time 25.57
+scalar:  2.8883
+Epoch 232:  train loss 0.0551   train acc 0.9928   worst 0.6814   lr 0.0143   p 114.97   eps 1.4606   mix 0.0024   time 25.21
+scalar:  2.8924
+Epoch 233:  train loss 0.0551   train acc 0.9924   worst 0.6802   lr 0.0142   p 116.46   eps 1.4606   mix 0.0023   time 25.27
+scalar:  2.8945
+Epoch 234:  train loss 0.0556   train acc 0.9919   worst 0.6841   lr 0.0141   p 117.97   eps 1.4606   mix 0.0023   time 25.09
+Epoch 234:  test acc 0.9862   time 1.93
+Calculating metrics for L_infinity dist model on training set
+Epoch 234:  clean acc 0.9933   certified acc 0.9327
+Calculating metrics for L_infinity dist model on test set
+Epoch 234:  clean acc 0.9868   certified acc 0.9195
+scalar:  2.8766
+Epoch 235:  train loss 0.0556   train acc 0.9928   worst 0.6793   lr 0.0140   p 119.50   eps 1.4606   mix 0.0023   time 24.10
+scalar:  2.9003
+Epoch 236:  train loss 0.0556   train acc 0.9926   worst 0.6719   lr 0.0138   p 121.05   eps 1.4606   mix 0.0022   time 25.46
+scalar:  2.9039
+Epoch 237:  train loss 0.0557   train acc 0.9929   worst 0.6699   lr 0.0137   p 122.61   eps 1.4606   mix 0.0022   time 25.22
+scalar:  2.9203
+Epoch 238:  train loss 0.0556   train acc 0.9928   worst 0.6793   lr 0.0136   p 124.20   eps 1.4606   mix 0.0022   time 25.49
+scalar:  2.892
+Epoch 239:  train loss 0.0569   train acc 0.9921   worst 0.6684   lr 0.0135   p 125.81   eps 1.4606   mix 0.0021   time 25.51
+Epoch 239:  test acc 0.9866   time 1.84
+Calculating metrics for L_infinity dist model on training set
+Epoch 239:  clean acc 0.9932   certified acc 0.9350
+Calculating metrics for L_infinity dist model on test set
+Epoch 239:  clean acc 0.9866   certified acc 0.9212
+scalar:  2.8959
+Epoch 240:  train loss 0.0565   train acc 0.9925   worst 0.6710   lr 0.0134   p 127.44   eps 1.4606   mix 0.0021   time 25.20
+scalar:  2.9126
+Epoch 241:  train loss 0.0572   train acc 0.9924   worst 0.6628   lr 0.0133   p 129.10   eps 1.4606   mix 0.0021   time 25.31
+scalar:  2.9102
+Epoch 242:  train loss 0.0559   train acc 0.9923   worst 0.6724   lr 0.0132   p 130.77   eps 1.4606   mix 0.0020   time 25.52
+scalar:  2.8909
+Epoch 243:  train loss 0.0562   train acc 0.9924   worst 0.6676   lr 0.0131   p 132.46   eps 1.4606   mix 0.0020   time 25.08
+scalar:  2.9159
+Epoch 244:  train loss 0.0571   train acc 0.9920   worst 0.6630   lr 0.0130   p 134.18   eps 1.4606   mix 0.0020   time 24.77
+Epoch 244:  test acc 0.9859   time 1.85
+Calculating metrics for L_infinity dist model on training set
+Epoch 244:  clean acc 0.9925   certified acc 0.9364
+Calculating metrics for L_infinity dist model on test set
+Epoch 244:  clean acc 0.9864   certified acc 0.9234
+scalar:  2.8978
+Epoch 245:  train loss 0.0571   train acc 0.9924   worst 0.6648   lr 0.0129   p 135.92   eps 1.4606   mix 0.0020   time 25.32
+scalar:  2.8832
+Epoch 246:  train loss 0.0573   train acc 0.9923   worst 0.6645   lr 0.0128   p 137.68   eps 1.4606   mix 0.0019   time 25.65
+scalar:  2.8861
+Epoch 247:  train loss 0.0572   train acc 0.9921   worst 0.6641   lr 0.0127   p 139.46   eps 1.4606   mix 0.0019   time 24.94
+scalar:  2.8934
+Epoch 248:  train loss 0.0574   train acc 0.9925   worst 0.6562   lr 0.0126   p 141.27   eps 1.4606   mix 0.0019   time 25.39
+scalar:  2.9287
+Epoch 249:  train loss 0.0567   train acc 0.9928   worst 0.6572   lr 0.0125   p 143.10   eps 1.4606   mix 0.0018   time 25.31
+Epoch 249:  test acc 0.9856   time 1.85
+Calculating metrics for L_infinity dist model on training set
+Epoch 249:  clean acc 0.9926   certified acc 0.9379
+Calculating metrics for L_infinity dist model on test set
+Epoch 249:  clean acc 0.9858   certified acc 0.9224
+scalar:  2.9348
+Epoch 250:  train loss 0.0570   train acc 0.9922   worst 0.6600   lr 0.0124   p 144.96   eps 1.4606   mix 0.0018   time 24.86
+scalar:  2.9182
+Epoch 251:  train loss 0.0582   train acc 0.9922   worst 0.6499   lr 0.0123   p 146.83   eps 1.4606   mix 0.0018   time 24.96
+scalar:  2.9357
+Epoch 252:  train loss 0.0569   train acc 0.9926   worst 0.6624   lr 0.0122   p 148.74   eps 1.4606   mix 0.0018   time 24.70
+scalar:  2.9342
+Epoch 253:  train loss 0.0572   train acc 0.9924   worst 0.6591   lr 0.0121   p 150.66   eps 1.4606   mix 0.0017   time 24.72
+scalar:  2.9177
+Epoch 254:  train loss 0.0577   train acc 0.9922   worst 0.6538   lr 0.0120   p 152.62   eps 1.4606   mix 0.0017   time 25.05
+Epoch 254:  test acc 0.9854   time 1.89
+Calculating metrics for L_infinity dist model on training set
+Epoch 254:  clean acc 0.9923   certified acc 0.9391
+Calculating metrics for L_infinity dist model on test set
+Epoch 254:  clean acc 0.9854   certified acc 0.9258
+scalar:  2.9267
+Epoch 255:  train loss 0.0580   train acc 0.9925   worst 0.6493   lr 0.0119   p 154.59   eps 1.4606   mix 0.0017   time 25.22
+scalar:  2.9258
+Epoch 256:  train loss 0.0580   train acc 0.9921   worst 0.6471   lr 0.0118   p 156.60   eps 1.4606   mix 0.0017   time 24.91
+scalar:  2.93
+Epoch 257:  train loss 0.0572   train acc 0.9922   worst 0.6512   lr 0.0117   p 158.63   eps 1.4606   mix 0.0016   time 25.08
+scalar:  2.9229
+Epoch 258:  train loss 0.0575   train acc 0.9922   worst 0.6530   lr 0.0116   p 160.68   eps 1.4606   mix 0.0016   time 25.18
+scalar:  2.9059
+Epoch 259:  train loss 0.0577   train acc 0.9923   worst 0.6445   lr 0.0115   p 162.77   eps 1.4606   mix 0.0016   time 24.81
+Epoch 259:  test acc 0.9854   time 1.86
+Calculating metrics for L_infinity dist model on training set
+Epoch 259:  clean acc 0.9926   certified acc 0.9404
+Calculating metrics for L_infinity dist model on test set
+Epoch 259:  clean acc 0.9856   certified acc 0.9255
+scalar:  2.9096
+Epoch 260:  train loss 0.0580   train acc 0.9926   worst 0.6426   lr 0.0114   p 164.87   eps 1.4606   mix 0.0016   time 25.29
+scalar:  2.9387
+Epoch 261:  train loss 0.0587   train acc 0.9919   worst 0.6462   lr 0.0113   p 167.01   eps 1.4606   mix 0.0015   time 25.03
+scalar:  2.906
+Epoch 262:  train loss 0.0581   train acc 0.9924   worst 0.6463   lr 0.0112   p 169.18   eps 1.4606   mix 0.0015   time 24.57
+scalar:  2.9045
+Epoch 263:  train loss 0.0584   train acc 0.9920   worst 0.6476   lr 0.0111   p 171.37   eps 1.4606   mix 0.0015   time 25.02
+scalar:  2.905
+Epoch 264:  train loss 0.0580   train acc 0.9921   worst 0.6412   lr 0.0110   p 173.59   eps 1.4606   mix 0.0015   time 25.53
+Epoch 264:  test acc 0.9850   time 1.84
+Calculating metrics for L_infinity dist model on training set
+Epoch 264:  clean acc 0.9923   certified acc 0.9409
+Calculating metrics for L_infinity dist model on test set
+Epoch 264:  clean acc 0.9850   certified acc 0.9277
+scalar:  2.9038
+Epoch 265:  train loss 0.0584   train acc 0.9920   worst 0.6444   lr 0.0109   p 175.84   eps 1.4606   mix 0.0015   time 25.50
+scalar:  2.9182
+Epoch 266:  train loss 0.0583   train acc 0.9924   worst 0.6421   lr 0.0108   p 178.12   eps 1.4606   mix 0.0014   time 24.74
+scalar:  2.9417
+Epoch 267:  train loss 0.0584   train acc 0.9926   worst 0.6383   lr 0.0107   p 180.42   eps 1.4606   mix 0.0014   time 25.03
+scalar:  2.9277
+Epoch 268:  train loss 0.0586   train acc 0.9919   worst 0.6364   lr 0.0106   p 182.76   eps 1.4606   mix 0.0014   time 25.58
+scalar:  2.922
+Epoch 269:  train loss 0.0587   train acc 0.9923   worst 0.6393   lr 0.0105   p 185.13   eps 1.4606   mix 0.0014   time 24.67
+Epoch 269:  test acc 0.9850   time 1.84
+Calculating metrics for L_infinity dist model on training set
+Epoch 269:  clean acc 0.9922   certified acc 0.9444
+Calculating metrics for L_infinity dist model on test set
+Epoch 269:  clean acc 0.9855   certified acc 0.9256
+scalar:  2.9185
+Epoch 270:  train loss 0.0590   train acc 0.9921   worst 0.6342   lr 0.0104   p 187.53   eps 1.4606   mix 0.0014   time 25.00
+scalar:  2.9274
+Epoch 271:  train loss 0.0587   train acc 0.9923   worst 0.6279   lr 0.0103   p 189.96   eps 1.4606   mix 0.0013   time 24.60
+scalar:  2.9168
+Epoch 272:  train loss 0.0585   train acc 0.9925   worst 0.6328   lr 0.0102   p 192.42   eps 1.4606   mix 0.0013   time 25.32
+scalar:  2.9241
+Epoch 273:  train loss 0.0592   train acc 0.9922   worst 0.6306   lr 0.0101   p 194.92   eps 1.4606   mix 0.0013   time 25.19
+scalar:  2.9304
+Epoch 274:  train loss 0.0588   train acc 0.9924   worst 0.6377   lr 0.0100   p 197.44   eps 1.4606   mix 0.0013   time 24.69
+Epoch 274:  test acc 0.9849   time 1.83
+Calculating metrics for L_infinity dist model on training set
+Epoch 274:  clean acc 0.9927   certified acc 0.9428
+Calculating metrics for L_infinity dist model on test set
+Epoch 274:  clean acc 0.9852   certified acc 0.9280
+scalar:  2.9319
+Epoch 275:  train loss 0.0592   train acc 0.9921   worst 0.6315   lr 0.0099   p 200.00   eps 1.4606   mix 0.0013   time 25.02
+scalar:  2.9241
+Epoch 276:  train loss 0.0591   train acc 0.9922   worst 0.6330   lr 0.0098   p 202.59   eps 1.4606   mix 0.0012   time 25.21
+scalar:  2.9332
+Epoch 277:  train loss 0.0589   train acc 0.9920   worst 0.6302   lr 0.0097   p 205.22   eps 1.4606   mix 0.0012   time 25.26
+scalar:  2.9259
+Epoch 278:  train loss 0.0587   train acc 0.9924   worst 0.6327   lr 0.0096   p 207.88   eps 1.4606   mix 0.0012   time 25.67
+scalar:  2.9247
+Epoch 279:  train loss 0.0590   train acc 0.9921   worst 0.6254   lr 0.0095   p 210.57   eps 1.4606   mix 0.0012   time 25.23
+Epoch 279:  test acc 0.9850   time 1.88
+Calculating metrics for L_infinity dist model on training set
+Epoch 279:  clean acc 0.9920   certified acc 0.9433
+Calculating metrics for L_infinity dist model on test set
+Epoch 279:  clean acc 0.9855   certified acc 0.9283
+scalar:  2.9186
+Epoch 280:  train loss 0.0592   train acc 0.9920   worst 0.6304   lr 0.0094   p 213.30   eps 1.4606   mix 0.0012   time 24.87
+scalar:  2.9195
+Epoch 281:  train loss 0.0589   train acc 0.9923   worst 0.6313   lr 0.0093   p 216.06   eps 1.4606   mix 0.0012   time 25.11
+scalar:  2.9193
+Epoch 282:  train loss 0.0591   train acc 0.9919   worst 0.6230   lr 0.0092   p 218.86   eps 1.4606   mix 0.0011   time 25.29
+scalar:  2.9187
+Epoch 283:  train loss 0.0597   train acc 0.9919   worst 0.6224   lr 0.0091   p 221.70   eps 1.4606   mix 0.0011   time 25.01
+scalar:  2.9257
+Epoch 284:  train loss 0.0600   train acc 0.9919   worst 0.6218   lr 0.0090   p 224.57   eps 1.4606   mix 0.0011   time 25.06
+Epoch 284:  test acc 0.9843   time 1.89
+Calculating metrics for L_infinity dist model on training set
+Epoch 284:  clean acc 0.9927   certified acc 0.9441
+Calculating metrics for L_infinity dist model on test set
+Epoch 284:  clean acc 0.9850   certified acc 0.9285
+scalar:  2.9204
+Epoch 285:  train loss 0.0592   train acc 0.9923   worst 0.6193   lr 0.0089   p 227.48   eps 1.4606   mix 0.0011   time 26.14
+scalar:  2.9309
+Epoch 286:  train loss 0.0591   train acc 0.9922   worst 0.6236   lr 0.0088   p 230.43   eps 1.4606   mix 0.0011   time 24.94
+scalar:  2.9188
+Epoch 287:  train loss 0.0587   train acc 0.9924   worst 0.6246   lr 0.0087   p 233.42   eps 1.4606   mix 0.0011   time 24.95
+scalar:  2.9205
+Epoch 288:  train loss 0.0599   train acc 0.9920   worst 0.6181   lr 0.0086   p 236.44   eps 1.4606   mix 0.0010   time 24.87
+scalar:  2.907
+Epoch 289:  train loss 0.0596   train acc 0.9922   worst 0.6203   lr 0.0085   p 239.51   eps 1.4606   mix 0.0010   time 24.99
+Epoch 289:  test acc 0.9845   time 1.91
+Calculating metrics for L_infinity dist model on training set
+Epoch 289:  clean acc 0.9920   certified acc 0.9443
+Calculating metrics for L_infinity dist model on test set
+Epoch 289:  clean acc 0.9853   certified acc 0.9289
+scalar:  2.9004
+Epoch 290:  train loss 0.0603   train acc 0.9921   worst 0.6146   lr 0.0084   p 242.61   eps 1.4606   mix 0.0010   time 25.27
+scalar:  2.9064
+Epoch 291:  train loss 0.0595   train acc 0.9917   worst 0.6197   lr 0.0083   p 245.75   eps 1.4606   mix 0.0010   time 24.55
+scalar:  2.9009
+Epoch 292:  train loss 0.0595   train acc 0.9918   worst 0.6225   lr 0.0082   p 248.94   eps 1.4606   mix 0.0010   time 25.35
+scalar:  2.9116
+Epoch 293:  train loss 0.0594   train acc 0.9921   worst 0.6235   lr 0.0081   p 252.16   eps 1.4606   mix 0.0010   time 24.38
+scalar:  2.9307
+Epoch 294:  train loss 0.0599   train acc 0.9914   worst 0.6212   lr 0.0081   p 255.43   eps 1.4606   mix 0.0010   time 24.98
+Epoch 294:  test acc 0.9848   time 1.85
+Calculating metrics for L_infinity dist model on training set
+Epoch 294:  clean acc 0.9923   certified acc 0.9452
+Calculating metrics for L_infinity dist model on test set
+Epoch 294:  clean acc 0.9854   certified acc 0.9282
+scalar:  2.9215
+Epoch 295:  train loss 0.0599   train acc 0.9918   worst 0.6236   lr 0.0080   p 258.74   eps 1.4606   mix 0.0009   time 25.27
+scalar:  2.9063
+Epoch 296:  train loss 0.0599   train acc 0.9918   worst 0.6176   lr 0.0079   p 262.09   eps 1.4606   mix 0.0009   time 24.56
+scalar:  2.9161
+Epoch 297:  train loss 0.0606   train acc 0.9920   worst 0.6068   lr 0.0078   p 265.49   eps 1.4606   mix 0.0009   time 25.47
+scalar:  2.9358
+Epoch 298:  train loss 0.0597   train acc 0.9920   worst 0.6160   lr 0.0077   p 268.93   eps 1.4606   mix 0.0009   time 24.72
+scalar:  2.9284
+Epoch 299:  train loss 0.0593   train acc 0.9923   worst 0.6184   lr 0.0076   p 272.42   eps 1.4606   mix 0.0009   time 24.32
+Epoch 299:  test acc 0.9845   time 1.82
+Calculating metrics for L_infinity dist model on training set
+Epoch 299:  clean acc 0.9925   certified acc 0.9450
+Calculating metrics for L_infinity dist model on test set
+Epoch 299:  clean acc 0.9849   certified acc 0.9280
+scalar:  2.9332
+Epoch 300:  train loss 0.0598   train acc 0.9922   worst 0.6095   lr 0.0075   p 275.95   eps 1.4606   mix 0.0009   time 25.29
+scalar:  2.9412
+Epoch 301:  train loss 0.0592   train acc 0.9921   worst 0.6149   lr 0.0074   p 279.52   eps 1.4606   mix 0.0009   time 24.72
+scalar:  2.9419
+Epoch 302:  train loss 0.0595   train acc 0.9915   worst 0.6250   lr 0.0073   p 283.14   eps 1.4606   mix 0.0008   time 25.04
+scalar:  2.9417
+Epoch 303:  train loss 0.0593   train acc 0.9917   worst 0.6189   lr 0.0072   p 286.81   eps 1.4606   mix 0.0008   time 24.28
+scalar:  2.9242
+Epoch 304:  train loss 0.0595   train acc 0.9920   worst 0.6111   lr 0.0071   p 290.53   eps 1.4606   mix 0.0008   time 24.51
+Epoch 304:  test acc 0.9848   time 1.83
+Calculating metrics for L_infinity dist model on training set
+Epoch 304:  clean acc 0.9915   certified acc 0.9456
+Calculating metrics for L_infinity dist model on test set
+Epoch 304:  clean acc 0.9855   certified acc 0.9283
+scalar:  2.9372
+Epoch 305:  train loss 0.0602   train acc 0.9918   worst 0.6124   lr 0.0071   p 294.29   eps 1.4606   mix 0.0008   time 24.22
+scalar:  2.9318
+Epoch 306:  train loss 0.0593   train acc 0.9922   worst 0.6169   lr 0.0070   p 298.11   eps 1.4606   mix 0.0008   time 24.61
+scalar:  2.9275
+Epoch 307:  train loss 0.0605   train acc 0.9922   worst 0.6091   lr 0.0069   p 301.97   eps 1.4606   mix 0.0008   time 25.34
+scalar:  2.9319
+Epoch 308:  train loss 0.0597   train acc 0.9921   worst 0.6093   lr 0.0068   p 305.88   eps 1.4606   mix 0.0008   time 24.75
+scalar:  2.9335
+Epoch 309:  train loss 0.0592   train acc 0.9923   worst 0.6280   lr 0.0067   p 309.85   eps 1.4606   mix 0.0008   time 25.10
+Epoch 309:  test acc 0.9844   time 1.85
+Calculating metrics for L_infinity dist model on training set
+Epoch 309:  clean acc 0.9923   certified acc 0.9461
+Calculating metrics for L_infinity dist model on test set
+Epoch 309:  clean acc 0.9852   certified acc 0.9293
+scalar:  2.9395
+Epoch 310:  train loss 0.0594   train acc 0.9920   worst 0.6127   lr 0.0066   p 313.86   eps 1.4606   mix 0.0008   time 24.41
+scalar:  2.9303
+Epoch 311:  train loss 0.0592   train acc 0.9921   worst 0.6268   lr 0.0065   p 317.93   eps 1.4606   mix 0.0007   time 25.10
+scalar:  2.9298
+Epoch 312:  train loss 0.0591   train acc 0.9924   worst 0.6132   lr 0.0064   p 322.05   eps 1.4606   mix 0.0007   time 24.92
+scalar:  2.9466
+Epoch 313:  train loss 0.0591   train acc 0.9922   worst 0.6210   lr 0.0064   p 326.22   eps 1.4606   mix 0.0007   time 24.44
+scalar:  2.9461
+Epoch 314:  train loss 0.0594   train acc 0.9924   worst 0.6135   lr 0.0063   p 330.45   eps 1.4606   mix 0.0007   time 24.78
+Epoch 314:  test acc 0.9842   time 1.86
+Calculating metrics for L_infinity dist model on training set
+Epoch 314:  clean acc 0.9920   certified acc 0.9455
+Calculating metrics for L_infinity dist model on test set
+Epoch 314:  clean acc 0.9850   certified acc 0.9299
+scalar:  2.9391
+Epoch 315:  train loss 0.0596   train acc 0.9921   worst 0.6064   lr 0.0062   p 334.73   eps 1.4606   mix 0.0007   time 24.40
+scalar:  2.9428
+Epoch 316:  train loss 0.0595   train acc 0.9923   worst 0.6083   lr 0.0061   p 339.07   eps 1.4606   mix 0.0007   time 25.13
+scalar:  2.9457
+Epoch 317:  train loss 0.0593   train acc 0.9924   worst 0.6138   lr 0.0060   p 343.47   eps 1.4606   mix 0.0007   time 25.31
+scalar:  2.9344
+Epoch 318:  train loss 0.0591   train acc 0.9922   worst 0.6154   lr 0.0059   p 347.92   eps 1.4606   mix 0.0007   time 24.86
+scalar:  2.9314
+Epoch 319:  train loss 0.0586   train acc 0.9924   worst 0.6201   lr 0.0058   p 352.43   eps 1.4606   mix 0.0007   time 24.96
+Epoch 319:  test acc 0.9847   time 1.84
+Calculating metrics for L_infinity dist model on training set
+Epoch 319:  clean acc 0.9924   certified acc 0.9465
+Calculating metrics for L_infinity dist model on test set
+Epoch 319:  clean acc 0.9852   certified acc 0.9294
+scalar:  2.9492
+Epoch 320:  train loss 0.0588   train acc 0.9924   worst 0.6150   lr 0.0058   p 356.99   eps 1.4606   mix 0.0006   time 24.63
+scalar:  2.9449
+Epoch 321:  train loss 0.0594   train acc 0.9921   worst 0.6062   lr 0.0057   p 361.62   eps 1.4606   mix 0.0006   time 24.50
+scalar:  2.949
+Epoch 322:  train loss 0.0591   train acc 0.9920   worst 0.6174   lr 0.0056   p 366.30   eps 1.4606   mix 0.0006   time 24.90
+scalar:  2.9552
+Epoch 323:  train loss 0.0590   train acc 0.9921   worst 0.6125   lr 0.0055   p 371.05   eps 1.4606   mix 0.0006   time 24.68
+scalar:  2.9441
+Epoch 324:  train loss 0.0592   train acc 0.9922   worst 0.6111   lr 0.0054   p 375.86   eps 1.4606   mix 0.0006   time 25.14
+Epoch 324:  test acc 0.9847   time 1.81
+Calculating metrics for L_infinity dist model on training set
+Epoch 324:  clean acc 0.9922   certified acc 0.9473
+Calculating metrics for L_infinity dist model on test set
+Epoch 324:  clean acc 0.9846   certified acc 0.9310
+scalar:  2.9334
+Epoch 325:  train loss 0.0584   train acc 0.9920   worst 0.6236   lr 0.0054   p 380.73   eps 1.4606   mix 0.0006   time 24.46
+scalar:  2.9266
+Epoch 326:  train loss 0.0591   train acc 0.9920   worst 0.6132   lr 0.0053   p 385.66   eps 1.4606   mix 0.0006   time 24.96
+scalar:  2.9238
+Epoch 327:  train loss 0.0591   train acc 0.9921   worst 0.6198   lr 0.0052   p 390.66   eps 1.4606   mix 0.0006   time 24.88
+scalar:  2.9241
+Epoch 328:  train loss 0.0589   train acc 0.9920   worst 0.6118   lr 0.0051   p 395.72   eps 1.4606   mix 0.0006   time 24.50
+scalar:  2.9329
+Epoch 329:  train loss 0.0592   train acc 0.9921   worst 0.6199   lr 0.0050   p 400.85   eps 1.4606   mix 0.0006   time 25.55
+Epoch 329:  test acc 0.9851   time 1.88
+Calculating metrics for L_infinity dist model on training set
+Epoch 329:  clean acc 0.9920   certified acc 0.9470
+Calculating metrics for L_infinity dist model on test set
+Epoch 329:  clean acc 0.9852   certified acc 0.9320
+scalar:  2.9347
+Epoch 330:  train loss 0.0590   train acc 0.9922   worst 0.6088   lr 0.0050   p 406.05   eps 1.4606   mix 0.0006   time 24.50
+scalar:  2.9367
+Epoch 331:  train loss 0.0587   train acc 0.9926   worst 0.6168   lr 0.0049   p 411.31   eps 1.4606   mix 0.0006   time 25.56
+scalar:  2.9454
+Epoch 332:  train loss 0.0591   train acc 0.9920   worst 0.6203   lr 0.0048   p 416.64   eps 1.4606   mix 0.0005   time 24.88
+scalar:  2.9319
+Epoch 333:  train loss 0.0588   train acc 0.9921   worst 0.6145   lr 0.0047   p 422.04   eps 1.4606   mix 0.0005   time 24.77
+scalar:  2.9303
+Epoch 334:  train loss 0.0588   train acc 0.9922   worst 0.6124   lr 0.0047   p 427.51   eps 1.4606   mix 0.0005   time 25.38
+Epoch 334:  test acc 0.9846   time 1.91
+Calculating metrics for L_infinity dist model on training set
+Epoch 334:  clean acc 0.9922   certified acc 0.9478
+Calculating metrics for L_infinity dist model on test set
+Epoch 334:  clean acc 0.9850   certified acc 0.9316
+scalar:  2.9289
+Epoch 335:  train loss 0.0585   train acc 0.9926   worst 0.6162   lr 0.0046   p 433.05   eps 1.4606   mix 0.0005   time 25.15
+scalar:  2.9385
+Epoch 336:  train loss 0.0588   train acc 0.9920   worst 0.6186   lr 0.0045   p 438.66   eps 1.4606   mix 0.0005   time 24.91
+scalar:  2.9329
+Epoch 337:  train loss 0.0595   train acc 0.9917   worst 0.6138   lr 0.0044   p 444.34   eps 1.4606   mix 0.0005   time 24.50
+scalar:  2.9215
+Epoch 338:  train loss 0.0585   train acc 0.9924   worst 0.6179   lr 0.0044   p 450.10   eps 1.4606   mix 0.0005   time 25.12
+scalar:  2.9288
+Epoch 339:  train loss 0.0580   train acc 0.9923   worst 0.6289   lr 0.0043   p 455.93   eps 1.4606   mix 0.0005   time 25.42
+Epoch 339:  test acc 0.9851   time 1.81
+Calculating metrics for L_infinity dist model on training set
+Epoch 339:  clean acc 0.9922   certified acc 0.9473
+Calculating metrics for L_infinity dist model on test set
+Epoch 339:  clean acc 0.9851   certified acc 0.9313
+scalar:  2.9295
+Epoch 340:  train loss 0.0590   train acc 0.9917   worst 0.6037   lr 0.0042   p 461.84   eps 1.4606   mix 0.0005   time 24.86
+scalar:  2.9257
+Epoch 341:  train loss 0.0586   train acc 0.9923   worst 0.6171   lr 0.0041   p 467.83   eps 1.4606   mix 0.0005   time 25.32
+scalar:  2.9276
+Epoch 342:  train loss 0.0587   train acc 0.9924   worst 0.6130   lr 0.0041   p 473.89   eps 1.4606   mix 0.0005   time 24.77
+scalar:  2.9294
+Epoch 343:  train loss 0.0587   train acc 0.9919   worst 0.6201   lr 0.0040   p 480.03   eps 1.4606   mix 0.0005   time 25.47
+scalar:  2.9248
+Epoch 344:  train loss 0.0584   train acc 0.9920   worst 0.6174   lr 0.0039   p 486.25   eps 1.4606   mix 0.0005   time 25.83
+Epoch 344:  test acc 0.9850   time 1.83
+Calculating metrics for L_infinity dist model on training set
+Epoch 344:  clean acc 0.9926   certified acc 0.9474
+Calculating metrics for L_infinity dist model on test set
+Epoch 344:  clean acc 0.9850   certified acc 0.9313
+scalar:  2.9267
+Epoch 345:  train loss 0.0582   train acc 0.9921   worst 0.6233   lr 0.0039   p 492.55   eps 1.4606   mix 0.0004   time 24.67
+scalar:  2.9226
+Epoch 346:  train loss 0.0585   train acc 0.9918   worst 0.6229   lr 0.0038   p 498.94   eps 1.4606   mix 0.0004   time 25.59
+scalar:  2.9203
+Epoch 347:  train loss 0.0577   train acc 0.9922   worst 0.6302   lr 0.0037   p 505.40   eps 1.4606   mix 0.0004   time 24.28
+scalar:  2.9244
+Epoch 348:  train loss 0.0590   train acc 0.9917   worst 0.6198   lr 0.0036   p 511.95   eps 1.4606   mix 0.0004   time 24.80
+scalar:  2.9247
+Epoch 349:  train loss 0.0583   train acc 0.9919   worst 0.6234   lr 0.0036   p 518.59   eps 1.4606   mix 0.0004   time 25.30
+Epoch 349:  test acc 0.9850   time 1.85
+Calculating metrics for L_infinity dist model on training set
+Epoch 349:  clean acc 0.9919   certified acc 0.9483
+Calculating metrics for L_infinity dist model on test set
+Epoch 349:  clean acc 0.9852   certified acc 0.9312
+scalar:  2.9223
+Epoch 350:  train loss 0.0582   train acc 0.9919   worst 0.6251   lr 0.0035   p 525.31   eps 1.4606   mix 0.0004   time 24.30
+scalar:  2.921
+Epoch 351:  train loss 0.0584   train acc 0.9922   worst 0.6188   lr 0.0034   p 532.11   eps 1.4606   mix 0.0004   time 24.73
+scalar:  2.9191
+Epoch 352:  train loss 0.0576   train acc 0.9922   worst 0.6185   lr 0.0034   p 539.01   eps 1.4606   mix 0.0004   time 24.36
+scalar:  2.9238
+Epoch 353:  train loss 0.0578   train acc 0.9919   worst 0.6304   lr 0.0033   p 545.99   eps 1.4606   mix 0.0004   time 25.33
+scalar:  2.9151
+Epoch 354:  train loss 0.0582   train acc 0.9923   worst 0.6131   lr 0.0032   p 553.07   eps 1.4606   mix 0.0004   time 25.34
+Epoch 354:  test acc 0.9844   time 1.86
+Calculating metrics for L_infinity dist model on training set
+Epoch 354:  clean acc 0.9923   certified acc 0.9481
+Calculating metrics for L_infinity dist model on test set
+Epoch 354:  clean acc 0.9848   certified acc 0.9322
+scalar:  2.9269
+Epoch 355:  train loss 0.0569   train acc 0.9924   worst 0.6268   lr 0.0032   p 560.24   eps 1.4606   mix 0.0004   time 24.75
+scalar:  2.9275
+Epoch 356:  train loss 0.0589   train acc 0.9918   worst 0.6124   lr 0.0031   p 567.50   eps 1.4606   mix 0.0004   time 25.41
+scalar:  2.9228
+Epoch 357:  train loss 0.0576   train acc 0.9914   worst 0.6251   lr 0.0031   p 574.85   eps 1.4606   mix 0.0004   time 25.20
+scalar:  2.9168
+Epoch 358:  train loss 0.0576   train acc 0.9920   worst 0.6344   lr 0.0030   p 582.30   eps 1.4606   mix 0.0004   time 25.62
+scalar:  2.9136
+Epoch 359:  train loss 0.0579   train acc 0.9922   worst 0.6224   lr 0.0029   p 589.84   eps 1.4606   mix 0.0004   time 25.24
+Epoch 359:  test acc 0.9846   time 1.87
+Calculating metrics for L_infinity dist model on training set
+Epoch 359:  clean acc 0.9923   certified acc 0.9491
+Calculating metrics for L_infinity dist model on test set
+Epoch 359:  clean acc 0.9849   certified acc 0.9307
+scalar:  2.918
+Epoch 360:  train loss 0.0568   train acc 0.9920   worst 0.6370   lr 0.0029   p 597.49   eps 1.4606   mix 0.0004   time 24.91
+scalar:  2.9109
+Epoch 361:  train loss 0.0576   train acc 0.9924   worst 0.6178   lr 0.0028   p 605.23   eps 1.4606   mix 0.0004   time 25.54
+scalar:  2.9161
+Epoch 362:  train loss 0.0571   train acc 0.9922   worst 0.6288   lr 0.0027   p 613.07   eps 1.4606   mix 0.0003   time 25.83
+scalar:  2.914
+Epoch 363:  train loss 0.0571   train acc 0.9921   worst 0.6265   lr 0.0027   p 621.02   eps 1.4606   mix 0.0003   time 25.49
+scalar:  2.9177
+Epoch 364:  train loss 0.0576   train acc 0.9924   worst 0.6355   lr 0.0026   p 629.07   eps 1.4606   mix 0.0003   time 25.29
+Epoch 364:  test acc 0.9852   time 1.83
+Calculating metrics for L_infinity dist model on training set
+Epoch 364:  clean acc 0.9922   certified acc 0.9479
+Calculating metrics for L_infinity dist model on test set
+Epoch 364:  clean acc 0.9852   certified acc 0.9311
+scalar:  2.925
+Epoch 365:  train loss 0.0577   train acc 0.9922   worst 0.6195   lr 0.0026   p 637.22   eps 1.4606   mix 0.0003   time 24.15
+scalar:  2.9199
+Epoch 366:  train loss 0.0572   train acc 0.9925   worst 0.6247   lr 0.0025   p 645.48   eps 1.4606   mix 0.0003   time 24.76
+scalar:  2.9256
+Epoch 367:  train loss 0.0573   train acc 0.9919   worst 0.6313   lr 0.0024   p 653.84   eps 1.4606   mix 0.0003   time 24.77
+scalar:  2.924
+Epoch 368:  train loss 0.0566   train acc 0.9923   worst 0.6362   lr 0.0024   p 662.31   eps 1.4606   mix 0.0003   time 25.07
+scalar:  2.9227
+Epoch 369:  train loss 0.0572   train acc 0.9921   worst 0.6391   lr 0.0023   p 670.90   eps 1.4606   mix 0.0003   time 25.54
+Epoch 369:  test acc 0.9849   time 1.82
+Calculating metrics for L_infinity dist model on training set
+Epoch 369:  clean acc 0.9919   certified acc 0.9485
+Calculating metrics for L_infinity dist model on test set
+Epoch 369:  clean acc 0.9848   certified acc 0.9322
+scalar:  2.924
+Epoch 370:  train loss 0.0569   train acc 0.9920   worst 0.6369   lr 0.0023   p 679.59   eps 1.4606   mix 0.0003   time 24.72
+scalar:  2.9222
+Epoch 371:  train loss 0.0569   train acc 0.9919   worst 0.6267   lr 0.0022   p 688.40   eps 1.4606   mix 0.0003   time 24.76
+scalar:  2.9185
+Epoch 372:  train loss 0.0573   train acc 0.9920   worst 0.6325   lr 0.0022   p 697.32   eps 1.4606   mix 0.0003   time 25.43
+scalar:  2.9197
+Epoch 373:  train loss 0.0568   train acc 0.9921   worst 0.6255   lr 0.0021   p 706.35   eps 1.4606   mix 0.0003   time 25.04
+scalar:  2.9208
+Epoch 374:  train loss 0.0571   train acc 0.9924   worst 0.6261   lr 0.0021   p 715.51   eps 1.4606   mix 0.0003   time 25.41
+Epoch 374:  test acc 0.9849   time 1.90
+Calculating metrics for L_infinity dist model on training set
+Epoch 374:  clean acc 0.9924   certified acc 0.9492
+Calculating metrics for L_infinity dist model on test set
+Epoch 374:  clean acc 0.9848   certified acc 0.9314
+scalar:  2.9272
+Epoch 375:  train loss 0.0571   train acc 0.9927   worst 0.6275   lr 0.0020   p 724.78   eps 1.4606   mix 0.0003   time 24.82
+scalar:  2.9287
+Epoch 376:  train loss 0.0568   train acc 0.9921   worst 0.6353   lr 0.0020   p 734.17   eps 1.4606   mix 0.0003   time 25.01
+scalar:  2.9257
+Epoch 377:  train loss 0.0564   train acc 0.9926   worst 0.6354   lr 0.0019   p 743.69   eps 1.4606   mix 0.0003   time 25.11
+scalar:  2.9272
+Epoch 378:  train loss 0.0571   train acc 0.9921   worst 0.6317   lr 0.0019   p 753.32   eps 1.4606   mix 0.0003   time 25.45
+scalar:  2.9298
+Epoch 379:  train loss 0.0564   train acc 0.9921   worst 0.6511   lr 0.0018   p 763.09   eps 1.4606   mix 0.0003   time 25.43
+Epoch 379:  test acc 0.9852   time 1.86
+Calculating metrics for L_infinity dist model on training set
+Epoch 379:  clean acc 0.9920   certified acc 0.9490
+Calculating metrics for L_infinity dist model on test set
+Epoch 379:  clean acc 0.9855   certified acc 0.9316
+scalar:  2.9261
+Epoch 380:  train loss 0.0567   train acc 0.9919   worst 0.6267   lr 0.0018   p 772.97   eps 1.4606   mix 0.0003   time 24.67
+scalar:  2.9253
+Epoch 381:  train loss 0.0565   train acc 0.9924   worst 0.6291   lr 0.0017   p 782.99   eps 1.4606   mix 0.0003   time 24.63
+scalar:  2.9277
+Epoch 382:  train loss 0.0565   train acc 0.9923   worst 0.6353   lr 0.0017   p 793.14   eps 1.4606   mix 0.0003   time 24.96
+scalar:  2.9293
+Epoch 383:  train loss 0.0562   train acc 0.9920   worst 0.6443   lr 0.0016   p 803.42   eps 1.4606   mix 0.0003   time 25.74
+scalar:  2.9272
+Epoch 384:  train loss 0.0558   train acc 0.9921   worst 0.6456   lr 0.0016   p 813.83   eps 1.4606   mix 0.0003   time 25.00
+Epoch 384:  test acc 0.9852   time 1.92
+Calculating metrics for L_infinity dist model on training set
+Epoch 384:  clean acc 0.9922   certified acc 0.9486
+Calculating metrics for L_infinity dist model on test set
+Epoch 384:  clean acc 0.9854   certified acc 0.9321
+scalar:  2.9256
+Epoch 385:  train loss 0.0558   train acc 0.9923   worst 0.6425   lr 0.0015   p 824.37   eps 1.4606   mix 0.0002   time 24.10
+scalar:  2.9258
+Epoch 386:  train loss 0.0564   train acc 0.9921   worst 0.6372   lr 0.0015   p 835.06   eps 1.4606   mix 0.0002   time 23.69
+scalar:  2.927
+Epoch 387:  train loss 0.0558   train acc 0.9921   worst 0.6505   lr 0.0014   p 845.88   eps 1.4606   mix 0.0002   time 24.19
+scalar:  2.9258
+Epoch 388:  train loss 0.0562   train acc 0.9923   worst 0.6469   lr 0.0014   p 856.84   eps 1.4606   mix 0.0002   time 22.81
+scalar:  2.9276
+Epoch 389:  train loss 0.0565   train acc 0.9919   worst 0.6372   lr 0.0013   p 867.94   eps 1.4606   mix 0.0002   time 22.98
+Epoch 389:  test acc 0.9850   time 1.95
+Calculating metrics for L_infinity dist model on training set
+Epoch 389:  clean acc 0.9927   certified acc 0.9487
+Calculating metrics for L_infinity dist model on test set
+Epoch 389:  clean acc 0.9852   certified acc 0.9317
+scalar:  2.9259
+Epoch 390:  train loss 0.0557   train acc 0.9922   worst 0.6411   lr 0.0013   p 879.19   eps 1.4606   mix 0.0002   time 22.52
+scalar:  2.9253
+Epoch 391:  train loss 0.0558   train acc 0.9924   worst 0.6469   lr 0.0013   p 890.58   eps 1.4606   mix 0.0002   time 21.98
+scalar:  2.929
+Epoch 392:  train loss 0.0557   train acc 0.9922   worst 0.6482   lr 0.0012   p 902.12   eps 1.4606   mix 0.0002   time 22.26
+scalar:  2.9274
+Epoch 393:  train loss 0.0564   train acc 0.9920   worst 0.6390   lr 0.0012   p 913.81   eps 1.4606   mix 0.0002   time 21.97
+scalar:  2.9251
+Epoch 394:  train loss 0.0561   train acc 0.9918   worst 0.6446   lr 0.0011   p 925.66   eps 1.4606   mix 0.0002   time 21.99
+Epoch 394:  test acc 0.9852   time 1.97
+Calculating metrics for L_infinity dist model on training set
+Epoch 394:  clean acc 0.9926   certified acc 0.9499
+Calculating metrics for L_infinity dist model on test set
+Epoch 394:  clean acc 0.9852   certified acc 0.9324
+scalar:  2.9226
+Epoch 395:  train loss 0.0566   train acc 0.9922   worst 0.6351   lr 0.0011   p 937.65   eps 1.4606   mix 0.0002   time 22.05
+scalar:  2.9223
+Epoch 396:  train loss 0.0562   train acc 0.9926   worst 0.6377   lr 0.0011   p 949.80   eps 1.4606   mix 0.0002   time 22.09
+scalar:  2.9231
+Epoch 397:  train loss 0.0559   train acc 0.9925   worst 0.6409   lr 0.0010   p 962.11   eps 1.4606   mix 0.0002   time 21.99
+scalar:  2.9255
+Epoch 398:  train loss 0.0553   train acc 0.9924   worst 0.6549   lr 0.0010   p 974.58   eps 1.4606   mix 0.0002   time 22.42
+scalar:  2.9244
+Epoch 399:  train loss 0.0555   train acc 0.9922   worst 0.6455   lr 0.0009   p 987.21   eps 1.4606   mix 0.0002   time 22.19
+Epoch 399:  test acc 0.9850   time 1.94
+Calculating metrics for L_infinity dist model on training set
+Epoch 399:  clean acc 0.9924   certified acc 0.9494
+Calculating metrics for L_infinity dist model on test set
+Epoch 399:  clean acc 0.9851   certified acc 0.9326
+scalar:  2.924
+Epoch 400:  train loss 0.0570   train acc 0.9917   worst 0.6206   lr 0.0009   p inf   eps 1.4606   mix 0.0002   time 6.59
+scalar:  2.9236
+Epoch 401:  train loss 0.0572   train acc 0.9922   worst 0.6200   lr 0.0009   p inf   eps 1.4606   mix 0.0002   time 6.62
+scalar:  2.9249
+Epoch 402:  train loss 0.0566   train acc 0.9921   worst 0.6259   lr 0.0008   p inf   eps 1.4606   mix 0.0002   time 6.74
+scalar:  2.9245
+Epoch 403:  train loss 0.0568   train acc 0.9925   worst 0.6272   lr 0.0008   p inf   eps 1.4606   mix 0.0002   time 6.83
+scalar:  2.9252
+Epoch 404:  train loss 0.0566   train acc 0.9925   worst 0.6256   lr 0.0008   p inf   eps 1.4606   mix 0.0002   time 6.15
+Epoch 404:  test acc 0.9847   time 0.80
+Calculating metrics for L_infinity dist model on training set
+Epoch 404:  clean acc 0.9920   certified acc 0.9496
+Calculating metrics for L_infinity dist model on test set
+Epoch 404:  clean acc 0.9847   certified acc 0.9331
+scalar:  2.9253
+Epoch 405:  train loss 0.0569   train acc 0.9920   worst 0.6220   lr 0.0007   p inf   eps 1.4606   mix 0.0002   time 6.78
+scalar:  2.9257
+Epoch 406:  train loss 0.0562   train acc 0.9925   worst 0.6234   lr 0.0007   p inf   eps 1.4606   mix 0.0002   time 6.28
+scalar:  2.9274
+Epoch 407:  train loss 0.0570   train acc 0.9923   worst 0.6240   lr 0.0007   p inf   eps 1.4606   mix 0.0002   time 6.28
+scalar:  2.9273
+Epoch 408:  train loss 0.0565   train acc 0.9921   worst 0.6320   lr 0.0006   p inf   eps 1.4606   mix 0.0002   time 5.37
+scalar:  2.9267
+Epoch 409:  train loss 0.0567   train acc 0.9919   worst 0.6275   lr 0.0006   p inf   eps 1.4606   mix 0.0002   time 5.24
+Epoch 409:  test acc 0.9848   time 0.74
+Calculating metrics for L_infinity dist model on training set
+Epoch 409:  clean acc 0.9917   certified acc 0.9508
+Calculating metrics for L_infinity dist model on test set
+Epoch 409:  clean acc 0.9848   certified acc 0.9328
+scalar:  2.925
+Epoch 410:  train loss 0.0564   train acc 0.9920   worst 0.6281   lr 0.0006   p inf   eps 1.4606   mix 0.0002   time 5.43
+scalar:  2.9244
+Epoch 411:  train loss 0.0562   train acc 0.9921   worst 0.6311   lr 0.0006   p inf   eps 1.4606   mix 0.0002   time 5.20
+scalar:  2.9235
+Epoch 412:  train loss 0.0561   train acc 0.9921   worst 0.6429   lr 0.0005   p inf   eps 1.4606   mix 0.0002   time 5.78
+scalar:  2.9226
+Epoch 413:  train loss 0.0567   train acc 0.9926   worst 0.6185   lr 0.0005   p inf   eps 1.4606   mix 0.0002   time 5.52
+scalar:  2.9231
+Epoch 414:  train loss 0.0561   train acc 0.9925   worst 0.6314   lr 0.0005   p inf   eps 1.4606   mix 0.0002   time 5.34
+Epoch 414:  test acc 0.9850   time 0.66
+Calculating metrics for L_infinity dist model on training set
+Epoch 414:  clean acc 0.9920   certified acc 0.9504
+Calculating metrics for L_infinity dist model on test set
+Epoch 414:  clean acc 0.9850   certified acc 0.9332
+scalar:  2.9246
+Epoch 415:  train loss 0.0557   train acc 0.9923   worst 0.6379   lr 0.0004   p inf   eps 1.4606   mix 0.0002   time 5.49
+scalar:  2.9254
+Epoch 416:  train loss 0.0563   train acc 0.9919   worst 0.6313   lr 0.0004   p inf   eps 1.4606   mix 0.0002   time 5.47
+scalar:  2.924
+Epoch 417:  train loss 0.0560   train acc 0.9926   worst 0.6282   lr 0.0004   p inf   eps 1.4606   mix 0.0002   time 5.33
+scalar:  2.9251
+Epoch 418:  train loss 0.0563   train acc 0.9922   worst 0.6383   lr 0.0004   p inf   eps 1.4606   mix 0.0002   time 5.47
+scalar:  2.9251
+Epoch 419:  train loss 0.0561   train acc 0.9924   worst 0.6278   lr 0.0003   p inf   eps 1.4606   mix 0.0002   time 5.26
+Epoch 419:  test acc 0.9848   time 0.57
+Calculating metrics for L_infinity dist model on training set
+Epoch 419:  clean acc 0.9927   certified acc 0.9515
+Calculating metrics for L_infinity dist model on test set
+Epoch 419:  clean acc 0.9848   certified acc 0.9334
+scalar:  2.9256
+Epoch 420:  train loss 0.0562   train acc 0.9923   worst 0.6292   lr 0.0003   p inf   eps 1.4606   mix 0.0002   time 5.40
+scalar:  2.9258
+Epoch 421:  train loss 0.0560   train acc 0.9920   worst 0.6342   lr 0.0003   p inf   eps 1.4606   mix 0.0002   time 5.80
+scalar:  2.9254
+Epoch 422:  train loss 0.0566   train acc 0.9922   worst 0.6336   lr 0.0003   p inf   eps 1.4606   mix 0.0002   time 5.19
+scalar:  2.9252
+Epoch 423:  train loss 0.0553   train acc 0.9921   worst 0.6537   lr 0.0003   p inf   eps 1.4606   mix 0.0002   time 5.27
+scalar:  2.9247
+Epoch 424:  train loss 0.0558   train acc 0.9925   worst 0.6437   lr 0.0002   p inf   eps 1.4606   mix 0.0002   time 5.17
+Epoch 424:  test acc 0.9848   time 0.55
+Calculating metrics for L_infinity dist model on training set
+Epoch 424:  clean acc 0.9920   certified acc 0.9499
+Calculating metrics for L_infinity dist model on test set
+Epoch 424:  clean acc 0.9848   certified acc 0.9330
+scalar:  2.9246
+Epoch 425:  train loss 0.0558   train acc 0.9923   worst 0.6424   lr 0.0002   p inf   eps 1.4606   mix 0.0002   time 5.24
+scalar:  2.9249
+Epoch 426:  train loss 0.0562   train acc 0.9920   worst 0.6311   lr 0.0002   p inf   eps 1.4606   mix 0.0002   time 5.33
+scalar:  2.9247
+Epoch 427:  train loss 0.0557   train acc 0.9920   worst 0.6486   lr 0.0002   p inf   eps 1.4606   mix 0.0002   time 5.42
+scalar:  2.9247
+Epoch 428:  train loss 0.0556   train acc 0.9926   worst 0.6356   lr 0.0002   p inf   eps 1.4606   mix 0.0002   time 5.79
+scalar:  2.9252
+Epoch 429:  train loss 0.0565   train acc 0.9924   worst 0.6270   lr 0.0002   p inf   eps 1.4606   mix 0.0002   time 5.53
+Epoch 429:  test acc 0.9850   time 0.56
+Calculating metrics for L_infinity dist model on training set
+Epoch 429:  clean acc 0.9928   certified acc 0.9510
+Calculating metrics for L_infinity dist model on test set
+Epoch 429:  clean acc 0.9850   certified acc 0.9326
+scalar:  2.9256
+Epoch 430:  train loss 0.0554   train acc 0.9922   worst 0.6481   lr 0.0001   p inf   eps 1.4606   mix 0.0002   time 5.37
+scalar:  2.9255
+Epoch 431:  train loss 0.0556   train acc 0.9923   worst 0.6411   lr 0.0001   p inf   eps 1.4606   mix 0.0002   time 5.13
+scalar:  2.9258
+Epoch 432:  train loss 0.0559   train acc 0.9922   worst 0.6369   lr 0.0001   p inf   eps 1.4606   mix 0.0002   time 5.12
+scalar:  2.9258
+Epoch 433:  train loss 0.0562   train acc 0.9920   worst 0.6390   lr 0.0001   p inf   eps 1.4606   mix 0.0002   time 5.15
+scalar:  2.9256
+Epoch 434:  train loss 0.0557   train acc 0.9924   worst 0.6439   lr 0.0001   p inf   eps 1.4606   mix 0.0002   time 5.17
+Epoch 434:  test acc 0.9851   time 0.61
+Calculating metrics for L_infinity dist model on training set
+Epoch 434:  clean acc 0.9923   certified acc 0.9498
+Calculating metrics for L_infinity dist model on test set
+Epoch 434:  clean acc 0.9851   certified acc 0.9329
+scalar:  2.9258
+Epoch 435:  train loss 0.0559   train acc 0.9926   worst 0.6370   lr 0.0001   p inf   eps 1.4606   mix 0.0002   time 5.41
+scalar:  2.9261
+Epoch 436:  train loss 0.0547   train acc 0.9927   worst 0.6462   lr 0.0001   p inf   eps 1.4606   mix 0.0002   time 5.22
+scalar:  2.926
+Epoch 437:  train loss 0.0553   train acc 0.9926   worst 0.6404   lr 0.0001   p inf   eps 1.4606   mix 0.0002   time 5.38
+scalar:  2.9261
+Epoch 438:  train loss 0.0554   train acc 0.9926   worst 0.6427   lr 0.0001   p inf   eps 1.4606   mix 0.0002   time 5.24
+scalar:  2.9261
+Epoch 439:  train loss 0.0565   train acc 0.9920   worst 0.6424   lr 0.0000   p inf   eps 1.4606   mix 0.0002   time 5.12
+Epoch 439:  test acc 0.9850   time 0.60
+Calculating metrics for L_infinity dist model on training set
+Epoch 439:  clean acc 0.9925   certified acc 0.9505
+Calculating metrics for L_infinity dist model on test set
+Epoch 439:  clean acc 0.9850   certified acc 0.9324
+scalar:  2.9261
+Epoch 440:  train loss 0.0556   train acc 0.9921   worst 0.6408   lr 0.0000   p inf   eps 1.4606   mix 0.0002   time 5.41
+scalar:  2.9261
+Epoch 441:  train loss 0.0559   train acc 0.9925   worst 0.6455   lr 0.0000   p inf   eps 1.4606   mix 0.0002   time 5.14
+scalar:  2.9261
+Epoch 442:  train loss 0.0554   train acc 0.9921   worst 0.6483   lr 0.0000   p inf   eps 1.4606   mix 0.0002   time 5.22
+scalar:  2.9262
+Epoch 443:  train loss 0.0555   train acc 0.9925   worst 0.6420   lr 0.0000   p inf   eps 1.4606   mix 0.0002   time 5.15
+scalar:  2.9262
+Epoch 444:  train loss 0.0555   train acc 0.9926   worst 0.6446   lr 0.0000   p inf   eps 1.4606   mix 0.0002   time 5.23
+Epoch 444:  test acc 0.9850   time 0.66
+Calculating metrics for L_infinity dist model on training set
+Epoch 444:  clean acc 0.9922   certified acc 0.9502
+Calculating metrics for L_infinity dist model on test set
+Epoch 444:  clean acc 0.9850   certified acc 0.9327
+scalar:  2.9262
+Epoch 445:  train loss 0.0557   train acc 0.9921   worst 0.6365   lr 0.0000   p inf   eps 1.4606   mix 0.0002   time 5.44
+Epoch 445:  test acc 0.9851   time 0.59
+Calculating metrics for L_infinity dist model on training set
+Epoch 445:  clean acc 0.9924   certified acc 0.9506
+Calculating metrics for L_infinity dist model on test set
+Epoch 445:  clean acc 0.9851   certified acc 0.9330
+Generate adversarial examples on test dataset
+adversarial attack acc 94.9900
+scalar:  2.9262
+Epoch 446:  train loss 0.0559   train acc 0.9919   worst 0.6439   lr 0.0000   p inf   eps 1.4606   mix 0.0002   time 5.25
+Epoch 446:  test acc 0.9847   time 0.59
+Calculating metrics for L_infinity dist model on training set
+Epoch 446:  clean acc 0.9925   certified acc 0.9522
+Calculating metrics for L_infinity dist model on test set
+Epoch 446:  clean acc 0.9847   certified acc 0.9333
+Generate adversarial examples on test dataset
+adversarial attack acc 95.0000
+scalar:  2.9262
+Epoch 447:  train loss 0.0560   train acc 0.9922   worst 0.6413   lr 0.0000   p inf   eps 1.4606   mix 0.0002   time 5.30
+Epoch 447:  test acc 0.9851   time 0.55
+Calculating metrics for L_infinity dist model on training set
+Epoch 447:  clean acc 0.9923   certified acc 0.9501
+Calculating metrics for L_infinity dist model on test set
+Epoch 447:  clean acc 0.9851   certified acc 0.9329
+Generate adversarial examples on test dataset
+adversarial attack acc 94.9500
+scalar:  2.9262
+Epoch 448:  train loss 0.0551   train acc 0.9922   worst 0.6452   lr 0.0000   p inf   eps 1.4606   mix 0.0002   time 5.33
+Epoch 448:  test acc 0.9848   time 0.56
+Calculating metrics for L_infinity dist model on training set
+Epoch 448:  clean acc 0.9925   certified acc 0.9510
+Calculating metrics for L_infinity dist model on test set
+Epoch 448:  clean acc 0.9848   certified acc 0.9321
+Generate adversarial examples on test dataset
+adversarial attack acc 94.8800
+scalar:  2.9262
+Epoch 449:  train loss 0.0557   train acc 0.9921   worst 0.6436   lr 0.0000   p inf   eps 1.4606   mix 0.0002   time 5.79
+Epoch 449:  test acc 0.9849   time 0.60
+Calculating metrics for L_infinity dist model on training set
+Epoch 449:  clean acc 0.9920   certified acc 0.9496
+Calculating metrics for L_infinity dist model on test set
+Epoch 449:  clean acc 0.9849   certified acc 0.9331
+Generate adversarial examples on test dataset
+adversarial attack acc 94.9300
+============Training completes===========
+Generate adversarial examples on test dataset
+adversarial attack acc 94.7800
+Calculating test acc and certified test acc
+Epoch 450:  clean acc 0.9849   certified acc 0.9331

@@ -1,0 +1,1 @@
+python main.py --dataset MNIST --model 'MLPModel(depth=5,width=5120,identity_val=10.0,scalar=True)' --loss 'mixture(lam0=0.05,lam_end=0.0002)' --p-start 8 --p-end 1000 --epochs 0,0,25,400,450 --eps-test 0.3 --eps-train 0.45 -b 512 --lr 0.03 --scalar-lr 0.006 --gpu 0 -p 200 --seed 2021 --visualize

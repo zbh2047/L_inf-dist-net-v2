@@ -1,0 +1,1 @@
+python main.py --dataset CIFAR10 --model 'MLPModel(depth=6,width=5120,identity_val=10.0,scalar=True)' --loss 'mixture(lam0=0.05,lam_end=0.002)' --p-start 8 --p-end 1000 --epochs 0,0,100,1250,1300 --eps-test 0.0078425 --eps-train 0.03922 -b 512 --lr 0.03 --scalar-lr 0.006 --gpu 0 -p 200 --seed 2021 --visualize
