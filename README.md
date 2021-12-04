@@ -40,7 +40,7 @@ To facilitate future research, we provide an interface containing the major comp
 
 - A function `norm_dist(x, w, p)` that calculates the L_p distance between the input tensor  `x` and the parameter tensor `w` with CUDA acceleration (in [core/norm_dist.py](https://github.com/zbh2047/L_inf-dist-net-v2/tree/main/core/norm_dist.py)).
 - A base class ` NormDistBase` that wraps the above function into a model layer suitable for pytorch `torch.nn.Module`. Then subclasses ` NormDist` and `NormDistConv` specialize the fully-connected layer and convolution layer  (in [core/modules/norm_dist.py](https://github.com/zbh2047/L_inf-dist-net-v2/tree/main/core/modules/norm_dist.py)).
-- The library also supports Interval Bound Propagation (IBP). We provide IBP layer for the linear transformation, convolution, and commonly used activation functions  (in [core/modules/basic_modules.py](https://github.com/zbh2047/L_inf-dist-net-v2/tree/main/core/modules/basic_modules.py)). It can be used to build the top MLP to form a composite architecture (L_infinity-distance net + MLP).
+- The library also supports Interval Bound Propagation (IBP). We provide IBP layer for the linear transformation, convolution, and commonly used activation functions  (in [core/modules/basic_modules.py](https://github.com/zbh2047/L_inf-dist-net-v2/tree/main/core/modules/basic_modules.py)) as well as the L-infinity distance function. They can be used to build the top MLP to form a composite architecture (L_infinity-distance net + MLP).
 
 
 
@@ -82,7 +82,7 @@ python main.py --dataset CIFAR10 --model 'MLPModel(depth=6,width=5120,identity_v
 To reproduce the baseline results of L_infinity-distance net + MLP on CIFAR-10 dataset with perturbation eps=8/255, run the following command
 
 ```
-python main.py --dataset CIFAR10 --model 'HybridModel(depth=6,width=5120,identity_val=10.0,hidden=512)' --loss 'crossentropy' --p-start 8 --p-end 1000 --epochs 0,0,100,750,800 --eps-test 0.03137 --eps-train 0.03451 -b 512 --lr 0.02 --gpu 0 -p 200 --seed 2021 --visualize
+python main.py --dataset CIFAR10 --model 'HybridModel(depth=7,width=5120,identity_val=10.0,hidden=512)' --loss 'crossentropy' --p-start 8 --p-end 1000 --epochs 0,100,100,750,800 --eps-test 0.03137 --eps-train 0.03451 -b 512 --lr 0.02 --gpu 0 -p 200 --seed 2021 --visualize
 ```
 
 
@@ -99,13 +99,13 @@ The model is automatically saved when the training procedure finishes. Use `--ch
 
 ### Displaying training curves
 
-By default the code will generate three files named `train.log`, `test.log` and `log.txt` which contain all training logs. If you want to further display training curves, you can add the parameter `--visualize` to show these curves using Tensorboard. 
+By default the code will generate five files named `train.log`, `test.log`,  `train_inf.log`, `test_inf.log`and `log.txt` which contain all training logs. If you want to further display training curves, you can add the parameter `--visualize` to show these curves using Tensorboard. 
 
 
 
 ## Pretrained Models
 
-We also provide pretrained models with SOTA certified robust accuracy. These models can be downloaded [here](https://drive.google.com/drive/folders/1ybyWxotjjaxIIiHbV9Tcy965badTpRJx?usp=sharing). The models are compressed into 7z file format. To use these models, follow the **Saving and Loading **instruction above.
+We also provide pretrained models with SOTA certified robust accuracy. These models can be downloaded [here](https://drive.google.com/drive/folders/1ybyWxotjjaxIIiHbV9Tcy965badTpRJx?usp=sharing). The models are compressed into 7z file format. To use these models, follow the **Saving and Loading** instruction above.
 
 
 
