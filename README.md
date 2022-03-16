@@ -116,15 +116,22 @@ Please contact [zhangbohang@pku.edu.cn](zhangbohang@pku.edu.cn)  if you have any
 
 
 ## Citation
-
 ```
-@article{zhang2021boosting,
-      title={Boosting the Certified Robustness of L-infinity Distance Nets}, 
-      author={Bohang Zhang and Du Jiang and Di He and Liwei Wang},
-      year={2021},
-      eprint={2110.06850},
-      archivePrefix={arXiv},
-      primaryClass={cs.LG}
+@inproceedings{zhang2021towards,
+  title={Towards Certifying L-infinity Robustness using Neural Networks with L-inf-dist Neurons},
+  author={Zhang, Bohang and Cai, Tianle and Lu, Zhou and He, Di and Wang, Liwei},
+  booktitle={International Conference on Machine Learning},
+  pages={12368--12379},
+  year={2021},
+  organization={PMLR}
+}
+```
+```
+@inproceedings{zhang2022boosting,
+  title={Boosting the Certified Robustness of L-infinity Distance Nets},
+  author={Bohang Zhang and Du Jiang and Di He and Liwei Wang},
+  booktitle={International Conference on Learning Representations},
+  year={2022},
 }
 ```
 
